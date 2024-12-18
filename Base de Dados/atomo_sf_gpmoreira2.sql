@@ -1,0 +1,4112 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Tempo de geração: 17-Dez-2024 às 14:49
+-- Versão do servidor: 10.3.39-MariaDB-0ubuntu0.20.04.2
+-- versão do PHP: 8.0.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `atomo_sf_gpmoreira2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `agts`
+--
+
+CREATE TABLE `agts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `private_key` text DEFAULT NULL,
+  `public_key` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `agts`
+--
+
+INSERT INTO `agts` (`id`, `private_key`, `public_key`, `created_at`, `updated_at`) VALUES
+(1, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7+SaUCH4D88ZIsE4wrhwnS45OyzHkdzg6pe1CNhKi1Md3pCsDSzuyes0KpW6Gl1WeNWo4gLd0cxd0shLtq6aUPW17RMGq2qqEbfH4THB21/8OrHz+A25AkEA2sZTr+ea759PgO9W24uRx4NwPhfOObYzc4SVwNJlkxMmkUBIgKzTXykKyHRVI5V55mUf2c7Fmrbh7Q7eHMFeXQJBANfYuWkMspfSotDMMewIy6Vu5Z4WTAM3VqVlWU0YwsTOxJtuYbQejStDBz9mBCLGZpmJXlhRG9TYKxLt82cFt6cCQFoqFt+OcpqDa/7VpVSCZyh1EVNl+EZswzO+1wFLNTWyVNjUR41QrSSxA5Kt71DlEAJWdxQLVgF3khFjaUMsprkCQEmNzBkVP6LnH56hhv2VPbiBYvQNSxfperhgIh9Yqb6ha3RAGEFmC9tLOyQKoqwrCfmWSzUzZpWQmJUZy1E3LI8CQAWL67LsimFT8lsq+6RiwOSWHlMHFCtpqDLCbWA0PgDNYBmE5HBjyLHC/Fyv7LtSRAnsKJP71VOwQJJKw2PUbQA=', 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQAB', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `armazems`
+--
+
+CREATE TABLE `armazems` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `armazems`
+--
+
+INSERT INTO `armazems` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Sede', 'There was a paper.', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `artigos`
+--
+
+CREATE TABLE `artigos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `tipo_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `categoria_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `imposto_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `preco` double DEFAULT NULL,
+  `imagem_1` varchar(191) DEFAULT NULL,
+  `imagem_2` varchar(191) DEFAULT NULL,
+  `imagem_3` varchar(191) DEFAULT NULL,
+  `unidade` varchar(191) DEFAULT NULL,
+  `fornecedor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `codigo_barra` varchar(191) DEFAULT NULL,
+  `is_stock` tinyint(1) DEFAULT NULL,
+  `stock_minimo` varchar(191) DEFAULT NULL,
+  `stock_maximo` varchar(191) DEFAULT NULL,
+  `observacao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `artigos`
+--
+
+INSERT INTO `artigos` (`id`, `codigo`, `designacao`, `tipo_id`, `retencao_id`, `categoria_id`, `imposto_id`, `preco`, `imagem_1`, `imagem_2`, `imagem_3`, `unidade`, `fornecedor_id`, `codigo_barra`, `is_stock`, `stock_minimo`, `stock_maximo`, `observacao`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Caneta Azul', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(2, NULL, 'TONNER', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(3, NULL, 'TINTAS DE SERIGRAFIA 500PF PRETO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(4, NULL, 'TINTAS DE SERIGRAFIA 600PF AMARELO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(5, NULL, 'TINTAS DE SERIGRAFIA 600PF AZUL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(6, NULL, 'TINTAS DE SERIGRAFIA 585PF BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(7, NULL, 'GRH', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(8, NULL, 'Tshirt Branca 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(9, NULL, 'Tshirt Branca 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(10, NULL, 'Tshirt Branca 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(11, NULL, 'Tshirt Branca 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(12, NULL, 'Tshirt Branca 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(13, NULL, 'Tshirt Branca 150gr 3XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(14, NULL, 'Tshirt Cinza 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(15, NULL, 'Tshirt Cinza 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(16, NULL, 'Tshirt Cinza 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(17, NULL, 'Tshirt Cinza 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(18, NULL, 'Tshirt Laranja 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(19, NULL, 'Tshirt Laranja 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(20, NULL, 'Tshirt Laranja 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(21, NULL, 'Tshirt Laranja 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(22, NULL, 'Tshirt Laranja 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(23, NULL, 'Tshirt Azul Royal 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(24, NULL, 'Tshirt Azul Royal 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(25, NULL, 'Tshirt Azul Royal 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(26, NULL, 'Tshirt Azul Royal 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(27, NULL, 'Tshirt Azul Royal 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(28, NULL, 'Tshirt Amarela 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(29, NULL, 'Tshirt Amarela 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(30, NULL, 'Tshirt Amarela 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(31, NULL, 'Tshirt Amarela 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(32, NULL, 'Tshirt Amarela 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(33, NULL, 'Tshirt Vermelha 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(34, NULL, 'Tshirt Vermelha 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(35, NULL, 'Tshirt Vermelha 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(36, NULL, 'Tshirt Vermelha 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(37, NULL, 'Tshirt Vermelha 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(38, NULL, 'Tshirt Verde 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(39, NULL, 'Tshirt Verde 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(40, NULL, 'Tshirt Verde 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(41, NULL, 'Tshirt Verde 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(42, NULL, 'Tshirt Verde 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(43, NULL, 'Tshirt Rosa Lpi 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(44, NULL, 'Tshirt Rosa Lpi 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(45, NULL, 'Tshirt Rosa Lpi 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(46, NULL, 'Tshirt Rosa Lpi 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(47, NULL, 'Braçal', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(48, NULL, 'Tshirt Rosa Lpi 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(49, NULL, 'Tshirt Rosa Flecia 150gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(50, NULL, 'Tshirt Rosa Flecia 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(51, NULL, 'Tshirt Rosa Flecia 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(52, NULL, 'Tshirt Rosa Flecia 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(53, NULL, 'Tshirt Rosa Flecia 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(54, NULL, 'Tshirt Navy S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(55, NULL, 'Tshirt Navy 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(56, NULL, 'Tshirt Navy 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(57, NULL, 'Tshirt Navy 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(58, NULL, 'Tshirt Navy 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(59, NULL, 'Tshirt Diva Azul Navy 150GR S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(60, NULL, 'Tshirt Diva Azul Navy 150gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(61, NULL, 'Tshirt Diva Azul Navy 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(62, NULL, 'Tshirt Diva Azul Navy 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(63, NULL, 'Tshirt Diva Azul Navy 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(64, NULL, 'Polo Branca 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(65, NULL, 'Polo Branca 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(66, NULL, 'Polo Branca 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(67, NULL, 'Polo Branca 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(68, NULL, 'Polo Branca 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(69, NULL, 'Polo Preta 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(70, NULL, 'Polo Preta 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(71, NULL, 'Polo Preta 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(72, NULL, 'Polo Preta 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(73, NULL, 'Polo Preta 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(74, NULL, 'Polo Vermelha 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(75, NULL, 'Polo Vermelha 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(76, NULL, 'Polo Vermelha 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(77, NULL, 'Polo Vermelha 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(78, NULL, 'Polo Vermelha 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(79, NULL, 'Polo Verde 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(80, NULL, 'Polo Verde 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(81, NULL, 'Polo Verde 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(82, NULL, 'Polo Verde 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(83, NULL, 'Polo Azul Bebe 180gr TAMANHO S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(84, NULL, 'Polo Azul Bebe 180gr TAMANHO M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(85, NULL, 'Polo Azul Bebe 180gr TAMANHO L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(86, NULL, 'Polo Azul Bebe 180gr TAMANHO XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(87, NULL, 'Polo Azul Bebe 180gr TAMANHO 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(88, NULL, 'Polo Azul Bebe 180gr TAMANHO 3XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(89, NULL, 'Polo Azul Royal 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(90, NULL, 'Polo Azul Royal 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(91, NULL, 'Tshirt Azul Royal 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(92, NULL, 'Polo Azul Royal 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(93, NULL, 'Polo Azul Royal 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(94, NULL, 'Polo Laranja 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(95, NULL, 'Polo Laranja 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(96, NULL, 'Polo Laranja 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(97, NULL, 'Polo Laranja 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(98, NULL, 'Polo Laranja 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(99, NULL, 'Polo Amarela 180gr S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(100, NULL, 'Polo Amarela 180gr M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(101, NULL, 'Polo Amarela 180gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(102, NULL, 'Tshirt Amarela 150gr', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(103, NULL, 'Polo Amarela 180gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(104, NULL, 'Polo Verde Escuro S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(105, NULL, 'Polo Verde Escuro M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(106, NULL, 'Polo Verde Escuro L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(107, NULL, 'Polo Verde Escuro XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(108, NULL, 'Polo Cinza 180gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(109, NULL, 'Polo Cinza 180gr 2XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(110, NULL, 'Tshirt Preta 150gr', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(111, NULL, 'Tshirt Preta 150gr ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(112, NULL, 'Tshirt Preta 150gr L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(113, NULL, 'Tshirt Preta 150gr XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(114, NULL, 'Tshirt Preta 150gr 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(115, NULL, 'Tshirt Preta 150gr 3XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(116, NULL, 'IMPRESSAO EM SACOLAS ROSA DE 35-45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(117, NULL, 'Sacolas Brancas 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(118, NULL, 'Sacolas Vermelhas 30/37', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(119, NULL, 'Sacolas Vermelhas 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(120, NULL, 'Sacolas Vermelhas 45/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(121, NULL, 'Sacolas Rosas 30/37', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(122, NULL, 'Sacolas Rosas 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(123, NULL, 'Sacolas Rosas 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(124, NULL, 'Sacolas Pretas 30/37', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(125, NULL, 'Sacolas Pretas 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(126, NULL, 'Sacolas Pretas 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(127, NULL, 'Sacolas Laranjas 30/37', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(128, NULL, 'Sacolas Laranjas 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(129, NULL, 'Sacolas Laranjas 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(130, NULL, 'Sacola Azul 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(131, NULL, 'Sacola Azul 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(132, NULL, 'Sacolas Amarelas 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(133, NULL, 'Colete Bege Multibolso S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(134, NULL, 'Colete Bege Multibolso M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(135, NULL, 'Colete Bege Multibolso L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(136, NULL, 'Colete Bege Multibolso XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(137, NULL, 'Colete Bege Multibolso 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(138, NULL, 'Colete Azul Multibolso S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(139, NULL, 'Colete Azul Multibolso M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(140, NULL, 'Colete Azul Multibolso L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(141, NULL, 'Colete Azul Multibolso XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(142, NULL, 'Colete Azul Multibolso 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(143, NULL, 'Colete Cinza Multibolso S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(144, NULL, 'Colete Cinza Multibolso XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(145, NULL, 'Colete Laranja Reflector M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(146, NULL, 'Colete Laranja Reflector 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(147, NULL, 'Colete Preto Multibolso S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(148, NULL, 'Colete Preto Multibolso XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(149, NULL, 'Colete Reporter Vest Yellow S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(150, NULL, 'Colete Reporter Vest Yellow M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(151, NULL, 'Colete Reporter Vest Yellow L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(152, NULL, 'Colete Reporter Vest Yellow 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(153, NULL, 'Colete Verde Multibolso S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(154, NULL, 'Colete Verde Multibolso M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(155, NULL, 'Colete Verde Multibolso L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(156, NULL, 'Colete Verde Multibolso XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(157, NULL, 'Colete Vermelho Multibolso 2XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(158, NULL, 'Bonês Brancos', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(159, NULL, 'Produção de Spots TV', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(160, NULL, 'Criação e Produção de Spot de Publicidade tv', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(161, NULL, 'Programação de Website e Respectivo Backoffice', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(162, NULL, 'Consultoria e Serviço de Designer', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(163, NULL, 'Produção e Montagem de Outdoors 6x3m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(164, NULL, 'Serviços de Assessoria de Imprensa', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(165, NULL, 'Prestação de serviço de streaming e de gestão de eventos para o Plano Integrado de Intervenção nos Municípios (PIIM)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(166, NULL, 'Streaming e de gestão de eventos para o Plano Integrado de Intervenção nos Municípios (piim).', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(167, NULL, 'Gestão de redes sociais, produção e elaboração de conteúdo específico para o Plano Integrado de Intervenção nos Municípios (PIIM).', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(168, NULL, 'Prestação de serviços de assessoria de imprensa, de media relations e de comunicação estratégica para o PIIM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(169, NULL, 'Disponibilização de serviço de clipping digital em targets associados ao Plano Integrado de Intervenção nos Municípios (PIIM).', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(170, NULL, 'Disponibilização de serviços de outdoors digitais para a campanha de comunicação associada ao Plano Integrado de Intervenção nos Municípios (PIIM).', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(171, NULL, 'Polo Azul Navy S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(172, NULL, 'Colete Verde Reflector M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(173, NULL, 'Impressão em Bandeiras 1.50CM x 1M (Turquia)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(174, NULL, 'Impressão em Bandeiras 1.50CM x 1M (Angop)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(175, NULL, 'Impressão em Bandeiras Republica 1.50CM x 1M (Angola)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(176, NULL, 'IMPRESSÃO EM BANDEIRINHAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(177, NULL, 'Capa de Chuva Preta DCP VPP', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(178, NULL, 'Sombrinha / Guarda chuva Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(179, NULL, 'Guarda Sol', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(180, NULL, 'Sombrinha / Guarda chuva Azul Nav', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(181, NULL, 'Sombrinha / Guarda chuva Amarela', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(182, NULL, 'Sombrinha / Guarda chuva Vermelha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(183, NULL, 'Sombrinha / Guarda chuva Verde', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(184, NULL, 'Sombrinha / Guarda chuva Azul Turquesa', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(185, NULL, 'Sombrinha / Guarda chuva Rosa', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(186, NULL, 'Macacão Vermelho 38/48', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(187, NULL, 'Macacão Vermelho 44/54', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(188, NULL, 'Macacão Vermelho 36/46', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(189, NULL, 'Macacão Vermelho 40/50', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(190, NULL, 'Macacão Vermelho 48/58', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(191, NULL, 'Macacão Vermelho Tamanho S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(192, NULL, 'Macacão Cinza Tamanho XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(193, NULL, 'Macacão Lilás Tamanho XXL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(194, NULL, 'Macacão Laranja M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(195, NULL, 'Macacão Laranja XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(196, NULL, 'Mastro Dourado', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(197, NULL, 'MASTRO DE COR PRATA DE SALA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(198, NULL, 'Tunica de Cozinha XXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(199, NULL, 'Polo com Impressão', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(200, NULL, 'Tshirt Azul Turquesa Tamanho M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(201, NULL, 'Gorro de Cozinha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(202, NULL, 'Tshirt Azul Turquesa S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(203, NULL, 'Tshirt Azul Turquesa L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(204, NULL, 'Tshirt Azul Turquesa XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(205, NULL, 'MASTRO PRATA DE MESA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(206, NULL, 'Mastro Dourado de Mesa', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(207, NULL, 'Chapeu de Palha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(208, NULL, 'Chapeu Panamá Branco', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(209, NULL, 'Chapeu Panamá Verde', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(210, NULL, 'Chapeu Panamá Vermelho', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(211, NULL, 'Calças Jeans Azul', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(212, NULL, 'Calças Jeans Cinza', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(213, NULL, 'Camisa Azul S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(214, NULL, 'Camisa Azul Tamanho 38', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(215, NULL, 'Camisa Azul Tamanho 44', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(216, NULL, 'Calça Multibolso Vermelha Tamanho 36 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(217, NULL, 'Calça Multibolso Vermelha Tamanho 42', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(218, NULL, 'Calça Multibolso Vermelha Tamanho 46', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(219, NULL, 'Calça Multibolso Vermelha Tamanho 48', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(220, NULL, 'Calça Multibolso Verde Tamanho 36', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(221, NULL, 'Calça Multibolso Verde Tamanho 38', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(222, NULL, 'Calça Multibolso Verde Tamanho 40', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(223, NULL, 'Calça Multibolso Verde Tamanho 42', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(224, NULL, 'Calça Multibolso Verde Tamanho 44', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(225, NULL, 'Calça Multibolso Verde Tamanho 46', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(226, NULL, 'Tshirt Griff Preta e Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(227, NULL, 'Sacolas Brancas 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(228, NULL, 'Fita de Pescoço de Corda Vermelha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(229, NULL, 'Fita de Pescoço de Corda Amarela', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(230, NULL, 'Fita de Pescoço de Corda Azul', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(231, NULL, 'Fita de Pescoço de Corda Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(232, NULL, 'Fita de Pescoço de Normal Laranja', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(233, NULL, 'IMPRESSÃO EM FITA DE PESCOÇO DE COR PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(234, NULL, 'Fita de Pescoço de Normal Vermelha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(235, NULL, 'Teste', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(236, NULL, 'Bones Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(237, NULL, 'Bandeira da Republica 4M X 8CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(238, NULL, ' Bandeira da Republica 1,50CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(239, NULL, 'T-Sherts', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(240, NULL, 'Colete multibolso com refletor', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(241, NULL, 'BATA ESCOLAR ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(242, NULL, 'JARDINEIRA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(243, NULL, 'FITAS DO PESCOÇO PERSONALIZADAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(244, NULL, 'GORROS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(245, NULL, 'JALECA DE COZINHEIRO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(246, NULL, 'COLETES MULTIBOLSO PERSONALIZADO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(247, NULL, 'COLETES REFLETORES', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(248, NULL, 'IMPRESSAO EM LONA DE 1M X1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(249, NULL, 'VINIL DE 1M X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(250, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(251, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.90CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(252, NULL, 'BANDEIRA DA REPUBLICA PARA EXTERIOR DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(253, NULL, 'BANDEIRA DA REPUBLICA PARA INTERIOR DE 1.90CM X 1.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(254, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.50CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(255, NULL, 'Impressão em Vinil de 2.40 cm x 91 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(256, NULL, 'Impressão em Vinil de 1.80 cm x 80 cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(257, NULL, 'Criação de Vinil ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(258, NULL, 'CONJUNTO DE TUNICA BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(259, NULL, 'IMPRESSÃO EM SACOLA ROSA 40X47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(260, NULL, 'ESFEROGRAFICA BALÇAO AZUL E BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(261, NULL, 'ESFEROGRAFICA ESPECIAL CINZA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(262, NULL, 'IMPRESSÃO EM ESFEROGRAFICA PRETA IPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(263, NULL, 'IMPRESSÃO EM PEN DRIVE (MATERIAL DO CLINTE)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(264, NULL, 'IMPRESSAO EM ESFEROGRAFICA AZUL ESCURA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(265, NULL, 'IMPRESSAO EM ESFEROGRAFICA CINZA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(266, NULL, 'IMPRESSAO EM ESFEROGRAFICA COR DE VINHO AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(267, NULL, 'IMPRESSAO EM ESFEROGRAFICA LILAS AIPAD ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(268, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERMELHA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(269, NULL, 'IMPRESSAO EM ESFEROGRAFICA AZUL ESCURA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(270, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERDE AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(271, NULL, 'IMPRESSAO EM ESFEROGRAFICA AZUL FINA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(272, NULL, 'IMPRESSAO EM ESFEROGRAFICA PRETA FINA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(273, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERDE GROSSA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(274, NULL, 'IMPRESSAO EM ESFEROGRAFICA PRETA GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(275, NULL, 'IMPRESSAO EM ESFEROGRAFICA CINZA GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(276, NULL, 'IMPRESSAO EM ESFEROGRAFICA LARANJA IPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(277, NULL, 'ESFEROGRAFICA VERMELHA E BRANCA DE MESA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(278, NULL, 'ESFEROGRAFICA LARANJA E BRANCA DE MESA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(279, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERMELHA FINA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(280, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERMELHA COM DOURADO FINA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(281, NULL, 'IMPRESSÃO EM T-SHIRTS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(282, NULL, 'IMPRESSAO EM ROLL UP DE 2MX80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(283, NULL, 'IMPRESSAO EM BONE BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(284, NULL, ' IMPRESSAO EM SACOLAS ROSA 40/47', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(285, NULL, 'IMPRESSAO EM BANDEIRA DE 3.25CM X 65CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(286, NULL, 'IMPRESSAO EM LONA DE 2.50CM X 2.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(287, NULL, 'IMPRESSAO EM SACOLAS 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(288, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA AZUL FINA COM DOURADO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(289, NULL, 'IMPRESSÃO EM SACOLA AZUL 35X45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(290, NULL, 'IMPRESSAO EM T-SHIRT BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(291, NULL, 'IMPRESSÃO EM BONÉ BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(292, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA PRETA AIPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(293, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(294, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M DA UNITA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(295, NULL, 'Impressao em Sacos TNT Preto', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(296, NULL, ' Impressao em Vinil de 1mx1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(297, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA 4MX8M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(298, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(299, NULL, 'PIN DA REPUBLICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(300, NULL, 'Impressão em Sacos TNT ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(301, NULL, 'IMPRESSÃO EM ESFEROGRAFICA PRETA FINA DOURADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(302, NULL, 'IMPRESSÃO EM POLOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(303, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 90CMX60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(304, NULL, 'IMPRESSAO EM BANDEIRINHAS DE MESA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(305, NULL, 'IMPRESSÃO EM T-SHIRTS PRETAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(306, NULL, 'IMPRESSÃO EM POLOS BRANCAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(307, NULL, 'Fita de Pescoço azul', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(308, NULL, 'IMPRESSÃO EM FITA DE PESCOÇO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(309, NULL, 'MOLDURA COM A CARA DO PRESIDENTE DA REPUBLICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(310, NULL, 'Impressão em lona de 4mx1.30cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(311, NULL, 'ROLL UP de 2mx80cm Imprenso', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(312, NULL, 'Impressão em Convites', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(313, NULL, 'Folhas Timbradas A4', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(314, NULL, 'Impressão em Flyers', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(315, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.50CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(316, NULL, 'Impressao em Lona de 1.90cmx1.78cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(317, NULL, 'Impressao em Lona 1.43cmx1.15cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(318, NULL, 'IMPRESSAO EM COLETES MULTIBOLSO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(319, NULL, ' CALÇA MULTIBOLSO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(320, NULL, 'IMPRESSAO EM POLO AZUL ROYAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(321, NULL, 'IMPRESSAO EM POLO VERMELHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(322, NULL, 'IMPRESSAO EM LONA 80CM X 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(323, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA DE 4M x 6M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(324, NULL, 'IMPRESSAO EM BANDEIRA DE ANGOLA DE 2M X 1.35CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(325, NULL, 'IMPRESSÃO EM BANDEIRAS DE PAÍSES DE 2M X 1.35CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(326, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 2M X 1.35CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(327, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA PRETA DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(328, NULL, 'METROS DE TECIDO DE 1.35CM X 50M DE COR VERMELHO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(329, NULL, 'METRO DE TECIDO DE 1.35CM X 50M DE COR PRETO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(330, NULL, 'METRO DE TECIDO DE 1.35CM X 50M DE COR AMARELO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(331, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(332, NULL, 'IMPRESSÃO EM LONA DE 3M X 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(333, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA (MATERIAL DO CLIENTE)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(334, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.16CM X 1.16CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(335, NULL, 'MASTRO DOURADO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(336, NULL, 'CALÇA SOCIAL PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(337, NULL, 'CAMISA BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(338, NULL, 'Conjunto de Túnicas Amarelas', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(339, NULL, 'GUARDASOL BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(340, NULL, 'GUARDASOL AMARELO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(341, NULL, 'FITAS PARA BAGAGEM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(342, NULL, 'MASTRO DUPLO DE MESA DE COR PRATA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(343, NULL, 'IMPRESSÃO EM BANDEIRINHAS DE MESA 1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(344, NULL, 'CRIAÇÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(345, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1M X 80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(346, NULL, 'COLETES REFLETORES DE COR LARANJA COM IMPRESSÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(347, NULL, 'IMPRESSÃO EM VINIL DE 1M X 1.47M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(348, NULL, 'IMPRESSÃO EM COLETES MULTIBOLSO REFLETORES COM FAIXA AMARELA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(349, NULL, 'IMPRESSÃO EM COLETE MULTIBOLSO DE COR CASTANHO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(350, NULL, 'CHAPÉU PANAMÁ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(351, NULL, 'IMPRESSÃO EM BANDEIRA DA ESPANHA DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(352, NULL, 'IMPRESSÃO EM BANDEIRA DA ESPANHA DE 1.90CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(353, NULL, 'IMPRESSAO EM BANDEIRA DE 55CM X 2.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(354, NULL, 'IMPRESSÃO EM BANDEIRA DE VÁRIOS PAÍSES DE 1.70CM X 2.60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(355, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(356, NULL, 'BANNER ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(357, NULL, 'IMPRESSAO EM VINIL DE 3M X 15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(358, NULL, 'BANDEIRA DA REPUBLICA DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(359, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA PRETA FINA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(360, NULL, 'MONTAGEM DE ROLL UP', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(361, NULL, 'Bandeira da Republica 190M X 140CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(362, NULL, 'Bandeira da Institucional 190M X 140CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(363, NULL, 'Esferografica Aipd azul escura personalizada', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(364, NULL, 'Esferografica Aipd A.Fina personalizada', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(365, NULL, 'IMPRESSÃO EM VINIL 2M x 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(366, NULL, 'BANDEIRA DA REPUBLICA DE 2M X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(367, NULL, 'Impressao em lona de 6mx1.20cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(368, NULL, 'IMPRESSÃO EM LONA 4M X 3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(369, NULL, 'TB-Impressao de Bandeira da Republica de 1.40CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(370, NULL, 'Impressão em Vinil de 1.30CM x 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(371, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.40CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `artigos` (`id`, `codigo`, `designacao`, `tipo_id`, `retencao_id`, `categoria_id`, `imposto_id`, `preco`, `imagem_1`, `imagem_2`, `imagem_3`, `unidade`, `fornecedor_id`, `codigo_barra`, `is_stock`, `stock_minimo`, `stock_maximo`, `observacao`, `status`, `created_at`, `updated_at`) VALUES
+(372, NULL, 'IMPRESSÃO EM T-SHIRTS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(373, NULL, 'Bones de cor branco poliéster ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(374, NULL, 'Tshirt Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(375, NULL, 'Tshirt Vermelha', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(376, NULL, 'Impressao em Lona de 3mx1.50cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(377, NULL, 'Impressão de Panfleto', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(378, NULL, 'Impressao em Lona de 2mx1.50cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(379, NULL, 'IMPRESSÃO EM LONA 3M X 3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(380, NULL, 'IMPRESSÃO EM LONA 6M X 1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(381, NULL, 'Impressao m Lona de 1.80cmx65cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(382, NULL, 'CONJUNTO DE TUNICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(383, NULL, 'Bata de serviço', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(384, NULL, 'IMPRESSÃO EM BONÉ AZUL ESCURO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(385, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.25CM X 0.78CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(386, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA DE 1.25CM X 0.78CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(387, NULL, 'IMPRESSAO EM COLETES MULTIBOLSO DE COOR BEGE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(388, NULL, 'IMPRESSÃO EM LONA 6M X 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(389, NULL, 'Microondas SHARP (R-20 MT)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(390, NULL, 'Microondas SHARP (R-75 MT)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(391, NULL, 'Microondas SHARP (R-77 MT)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(392, NULL, 'TV SHARP 32 (LC-32LE185M)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(393, NULL, 'FRIGOBAR SHARP (SJ-K75X-SL3)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(394, NULL, 'FRIGOBAR SHARP (SJ-K135X-SL3)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(395, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA DE 3M X 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(396, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA DE 5M X 3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(397, NULL, 'IMPRESSAO EM BANDEIRA DE 70 X 2.90 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(398, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.25CMX0,78CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(399, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 1.250CMX0,78CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(400, NULL, 'CABAZ VIP PRÉMIO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(401, NULL, 'IMPRESSAO EM LONA DE 1.80CMX65CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(402, NULL, 'CABAZ ECONÓMICO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(403, NULL, 'CAIXINHA PARA ESFEROGRAFICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(404, NULL, 'TINTA DA PLOTER DE COR MAGENTA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(405, NULL, 'Agenciamento e Disposição de espaço para exibição de anúncio televisivo TV 1 / 6 Meses', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(406, NULL, 'Agenciamento e Disposição de espaço para exibição de anúncio televisivo TV 2 / 6 Meses', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(407, NULL, 'Agenciamento e Disposição de espaço para exibição de anúncio em salas de cinema 1/ 3 Meses ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(408, NULL, 'Agenciamento de espaço em Outdoors digitais / Seis meses de campanha ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(409, NULL, 'PLACA BACLETE DE 100MX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(410, NULL, 'IMPRESSÃO EM Vinil de 64cmx1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(411, NULL, 'IMPRESSÃO EM LONA DE 1MX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(412, NULL, 'APLICAÇÃO DA PLACA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(413, NULL, 'IMPRESSÃO EM LONA DE 6MX2.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(414, NULL, 'Bones 22/095 Personalizados', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(415, NULL, 'Impressao em Vinil de 1.88cmx90cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(416, NULL, 'Impressao de Bandeira da Republica de 5mx3m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(417, NULL, 'Impressao em Bandeira da Rupublica de 3mx2m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(418, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1M X 80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(419, NULL, 'IMPRESSORA XEROX', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(420, NULL, 'Impressao em Bandeira da Republica de 1.70cmx1.20cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(421, NULL, 'Impressao em Bandeiras Institucionais de 1.70cmx1.20cm ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(422, NULL, 'Impressao em vinil de 6.54cmx2.99cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(423, NULL, 'IMPRESSAO EM CACHECOL CASA- CE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(424, NULL, 'IMPRESSAO EM SACOLAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(425, NULL, 'MOCHILAS SEM IMPRESSÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(426, NULL, 'IMPRESSAO EM VINIL DE 1.13CM X 74CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(427, NULL, 'IMPRESSAO EM VINIL DE 2.40CM X 57CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(428, NULL, 'IMPRESSAO EM VINIL DE 49CM X 27CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(429, NULL, 'Impressao em Bandeiras institucionais de 1.30cmx80cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(430, NULL, 'Mastro de Mesa de cor Prata', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(431, NULL, 'Impressao T-Sherts -M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(432, NULL, 'Impressao T-Sherts -L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(433, NULL, 'Impressao T-Sherts -XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(434, NULL, 'Impressao T-Sherts -XXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(435, NULL, 'Impressao Bonés', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(436, NULL, 'Mastro de Sala Dourado', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(437, NULL, 'Impressao Bandeiras Interior 1.90M x 1.40M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(438, NULL, 'Exemplares livros 60 paginas, miolo 4/4 papel em coche brilho130grs. Capa impressao a cores em cartolina forte 350 grs com acabamentos em plastico com brilho formato A5 colado.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(439, NULL, 'Impressao em Lona de 2.33cmx60cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(440, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.90 CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(441, NULL, 'IMPRESSÃO EM LONA DE 1.43CM X 1.15CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(442, NULL, 'IMPRESSÃO EM SACOLAS BRANCAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(443, NULL, 'IMPRESSÃO EM SACOLAS VERMELHAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(444, NULL, 'IMPRESSÃO EM SACOLAS PRETAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(445, NULL, 'IMPRESSÃO EM VINIL DE 1.50CM X 1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(446, NULL, 'IMPRESSÃO EM T-SHIRT 1 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(447, NULL, 'IMPRESSÃO EM BONÉ ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(448, NULL, 'IMPRESSÃO EM T-SHIRT DE COR ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(449, NULL, 'IMPRESSÃO EM VINIL 1.67CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(450, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.30CM X 90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(451, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(452, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.90CM X 1.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(453, NULL, 'IMPRESSÃO EM T-SHIRT AZUL ESCURA DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(454, NULL, 'IMPRESSÃO EM T-SHIRTS BRANCAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(455, NULL, 'IMPRESSÃO EM BONÉ AZUL ESCURO DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(456, NULL, 'IMPRESSÃO EM CAMISA AZUL CLARA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(457, NULL, 'CRIAÇÃO 1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(458, NULL, 'Bonés Brancos', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(459, NULL, 'IMPRESSÃO EM POLO 1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(460, NULL, 'IMPRESSÃO EM BANDEIRA DE 2.50CM X 1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(461, NULL, 'IMPRESSÃO EM BANDEIRA DE 2.50 CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(462, NULL, 'IMPRESSÃO EM LONA DE 4.20CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(463, NULL, 'IMPRESSÃO EM LONAS DE 6.20CM2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(464, NULL, 'Impressao em Lonas de 6mx2m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(465, NULL, 'TÚNICA COMPLETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(466, NULL, 'ROLO DE FLAMULAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(467, NULL, 'ROLOS DE FLAMULAS DE COR AMARELO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(468, NULL, 'ROLOS DE FLAMULAS DE COR VERMELHO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(469, NULL, 'IMPRESSÃO EM T-SHIRT LARANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(470, NULL, 'IMPRESSÃO EM T-Shert ROSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(471, NULL, 'IMPRESSÃO EM T-Shert AZUL CLARA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(472, NULL, 'IMPRESSÃO EM T-SHERT PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(473, NULL, 'IMPRESSÃO EM T-SHIRT AZUL ROYAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(474, NULL, 'IMPRESSÃO EM T-SHIRT AZUL ESCURA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(475, NULL, 'IMPRESSÃO EM T-SHIRT BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(476, NULL, '1- IMPRESSÃO EM LONA DE 1M X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(477, NULL, 'IMPRESSÃO EM VINIL AUTOCOLANTE 1M X1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(478, NULL, 'IMPRESSÃO EM DÍSTICO [LONA] DE 1M X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(479, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(480, NULL, 'IMPRESSÃO E APLICAÇÃO DE OUTDOORS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(481, NULL, 'IMPRESSÃO EM VINIL DE 2.10CM X 1.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(482, NULL, '1- IMPRESSÃO EM BANDEIRINHAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(483, NULL, '1- IMPRESSÃO EM BANDEIRA DE 1.40CM X 80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(484, NULL, 'T-SHIRT TECNICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(485, NULL, 'MANUTENÇÃO DE LONAS DE 8MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(486, NULL, 'IMPRESSÃO EM VINIL DE 2.50CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(487, NULL, 'IMPRESSAO EM VINIL DE 1.46CMX22CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(488, NULL, 'APLICAÇÃO DO VINIL NO AUTOCARRO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(489, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.50CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(490, NULL, 'BANDEIRA DA REPUBLICA DE 1.50CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(491, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(492, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(493, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(494, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(495, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - XXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(496, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA - XXXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(497, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.50CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(498, NULL, 'IMPRESSÃO EM BONÉ DE CAMPANHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(499, NULL, 'IMPRESSÃO EM VINIL 2M X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(500, NULL, 'IMPRESSÃO EM LONA DE 6M X 2M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(501, NULL, 'IMPRESSAO EM T-SHIRTS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(502, NULL, 'IMPRESSÃO EM BANDEIRA DE 2M X 1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(503, NULL, 'Impressão em T-shirts Brancas/ Serigrafia e Transfer ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(504, NULL, 'ROLOS DE FLAMULAS DE COR BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(505, NULL, 'Bandeirinhas de Papel', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(506, NULL, 'ESFEROGRÁFICAS SEM IMPRESSÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(507, NULL, 'IMPRESSÃO EM T-SHIRT DE COR AZUL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(508, NULL, 'IMPRESSÃO EM T-SHIRT DE COR VERMELHA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(509, NULL, 'IMPRESSÃO EM T-SHIRT DE COR CINZA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(510, NULL, 'IMPRESSÃO EM BONÉ DE COR ROSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(511, NULL, 'IMPRESSÃO EM BONÉ DE COR VERMELHO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(512, NULL, 'IMPRESSÃO EM BONÉ DE COR AZUL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(513, NULL, 'IMPRESSÃO EM BONÉ DE COR CINZA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(514, NULL, 'IMPRESSÃO EM BOÉ DE COR BRANCO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(515, NULL, 'IMPRESSÃO EM BANDEIRINHA - 1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(516, NULL, 'Impressão e criação de lona de 5.15cm x 1.50cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(517, NULL, 'Impressão em lona de 3m x 1.20cm ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(518, NULL, '01- IMPRESSÃO EM ESFEROGRÁFICA PRETA FINA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(519, NULL, 'ESFEROGRÁFICA DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(520, NULL, 'IMPRESSÃO EM SACOLAS TNT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(521, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(522, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA PRETA FINA -1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(523, NULL, 'BLOCO DE NOTAS A4', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(524, NULL, 'BLOCO DE NOTAS A5 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(525, NULL, 'PAPEL COUCHÉ 170g', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(526, NULL, 'IMPRESSÃO EM BANDEIRA DA REPÚBLICA DE 1.40cm x 1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(527, NULL, 'IMPRESSÃO EM BANDEIRA DA REPÚBLICA DE 1.90cm x 1.40cm ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(528, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.40cm x 1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(529, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.90cm x 1.40cm ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(530, NULL, 'IMPRESSÃO EM BONÉ LARANJA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(531, NULL, 'HORAS EXTRAS POR T-SHIRT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(532, NULL, 'IMPRESSÃO EM BONE-', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(533, NULL, 'IMPRESSÃO EM BANDEIRA DE 2.60CM X 1.70CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(534, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.80CM X 1.30 CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(535, NULL, 'IMPRESSÃO EM BANDEIRA DA REPÚBLICA DE 1.80CM X 1.20CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(536, NULL, 'Impressao de Bandeira Institucional de 1mx75cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(537, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 1M X 75CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(538, NULL, 'IMPRESSÃO EM T-SHIRT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(539, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(540, NULL, 'IMPRESSÃO EM BONÉ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(541, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.20CM X 80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(542, NULL, 'Impressao em Bandeiras de 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(543, NULL, 'Impressão em Bandeiras', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(544, NULL, 'TAXA DE URGÊNCIA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(545, NULL, 'Impressao em T-shirts de cor branca 5/6', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(546, NULL, 'Impressao em Polos de cor Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(547, NULL, 'Bones de cor Brancos Personalizados', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(548, NULL, 'Impressao em Bandeiras Institucionais de 1.40cmx1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(549, NULL, 'Impressao em FLY Banners da Cuca F.Branco C/gota água de 4.30cmx1m ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(550, NULL, 'Impressao em FLYBanners Cuca F. Amarelo de 3.60cmx80cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(551, NULL, 'Impressao em FLY Banner da Cuca amarela azul no final de 2.50cmx80cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(552, NULL, 'Impressao em FLY Banner da Cuca F. Branco letra vermelha de 2.75cmx80cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(553, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M da Republica', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(554, NULL, 'IMPRESSÃO EM BONE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(555, NULL, 'IMPRESSÃO EM POLO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(556, NULL, 'MASTRO DOURADO DE SALA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(557, NULL, 'BANDEIRA DA REPÚBLICA PARA INTERIOR DE 1.90CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(558, NULL, 'IMPRESSÃO EM POLOS DE COR BRANCA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(559, NULL, 'IMPRESSÃO EM POLOS DE COR LARANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(560, NULL, 'IMPRESSÃO EM BONE DE COR LARANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(561, NULL, 'TAXA DE URGÊNCIA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(562, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR LARANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(563, NULL, 'IMPRESSÃO EM POLO DE COR LARANJA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(564, NULL, 'IMPRESSÃO EM LONAS 1.66CMX1.55CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(565, NULL, 'IMPRESSÃO EM BANDEIRAS DE 1.20CMX2.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(566, NULL, 'IMPRESSÃO EM VINIL DE 1.50CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(567, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(568, NULL, 'IMPRESSÃO EN VINIL 11M X 1.45CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(569, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.83CMX1.22CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(570, NULL, 'IMPRESSÃO EM LONA DE 10MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(571, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR VERMELHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(572, NULL, 'IMPRESSÃO EM VINIL DE 1.65 CM X 160 CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(573, NULL, 'IMPRESSÃO EM LONAS DE 2MX80CM E APLICAÇÃO NOS ROLL UP ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(574, NULL, 'IMPRESSÃO EM T-SHIRT Á TRANSFER ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(575, NULL, 'IMPRESSÃO EM LONA DE 2.86CMX2.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(576, NULL, 'IMPRESSÃO EM LONAS DE 1.43CMX1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(577, NULL, 'TONER ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(578, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.60CM X 1.10CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(579, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 1.40CM X 1M - LIMA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(580, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.40CM X 1M - JURA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(581, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.40CM X 1M -UNITA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(582, NULL, 'IMPRESSÃO EM BANDEIRINHA DE MESA FRENTE E VERSO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(583, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.30CM X 90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(584, NULL, 'IMPRESSÃO EM T-SHIRT BRANCA COM TRANSFER ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(585, NULL, 'IMPRESSÃO EM BANDEIRAS INSTITUCIONAIS DE 1.50CMX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(586, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA 1.50CMX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(587, NULL, 'IMPRESSÃO EM T-SHIRT ---', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(588, NULL, 'IMPRESSÃO EM BONE ---', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(589, NULL, 'IMPRESSÃO EM BANDEIRAS DE 1.70CMX65CM FLYBANNERS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(590, NULL, 'CAPAS DE PROCESSO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(591, NULL, 'IMPRESSÃO EM PASSES PVC', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(592, NULL, 'IMPRESSÃO EM CARTÕES DE VISITA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(593, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.70CM X 90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(594, NULL, 'IMPRESSÃO EM BANDEIRA DA REPÚBLICA DE 1.90CM X 1.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(595, NULL, 'MASTRO DOURADO DE SALA.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(596, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 2.50CM X 1.50CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(597, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 2.38CM X 1.68CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(598, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 2.38CM X 1.68CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(599, NULL, 'IMPRESSÃO EM T-SHIRT C.N.E', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(600, NULL, 'IMPRESSÃO EM CREDENCIAIS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(601, NULL, 'IMPRESSÃO EM POLO C.N.E', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(602, NULL, 'IMPRESSÃO EM BONE C.N.E', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(603, NULL, 'POSTER PARA EXPOSITOR-HALL DE 65CM X48CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(604, NULL, 'POSTER PARA PÚLPITO DE 90CM X 60CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(605, NULL, 'IMPRESSÃO EM LONA DE 4.50CM X 50CM ,COM ACABAMENTO EM FITA COLA DUPLA FACE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(606, NULL, 'BLACK DROUP -FOTOGRAFIA DE 2.95CM X 1.95CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(607, NULL, 'BACKDROUP -FOTOGRAFIA DE 2.95CM X 1.95CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(608, NULL, 'APLICAÇÃO DO BACKDROUP ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(609, NULL, 'IMPRESSÃO EM BLOCOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(610, NULL, 'PASTAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(611, NULL, 'SINALÉTICAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(612, NULL, 'PORTA PASSE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(613, NULL, 'IDENTIFICADOR DE PÚLPITO 60CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(614, NULL, 'IMPRESSÃO EM LONA DE 4.50CM X 50CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(615, NULL, 'TV INTERATIVA COM AROMA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(616, NULL, 'IMPRESSÃO EM ROLL UP DE 2MX80CM - CNE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(617, NULL, 'APLICAÇÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(618, NULL, 'IMPRESSÃO EM SACOS TNT CNE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(619, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(620, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 2.20CM X 85', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(621, NULL, '02-IMPRESSÃO EM LONA DE 2M X 80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(622, NULL, 'IMPRESSÃO EM DÍSTICO DE 6M X 2M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(623, NULL, 'IMPRESSÃO EM ESFEROGRAFICA AZUL { MATERIAL DO CLIENTE ]', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(624, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA UM LADO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(625, NULL, 'Rolo de Flamulas de cor Branco', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(626, NULL, ' ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(627, NULL, 'IMPRESSÃO EM BLUSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(628, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA DO CLIENTE ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(629, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DUPLA FACE DE 1.80CM X 1.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(630, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.60CM X 1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(631, NULL, 'IMPRESSÃO EM BANDEIRA DE 60CMX40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(632, NULL, 'IMPRESSÃO EM VINIL DE 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(633, NULL, 'IMPRESSÃO EM BANDEIRA DE 59,4CMX42CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(634, NULL, 'IMRESSAO EM BANDEIRA DE 1.30CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(635, NULL, 'PORTA PASSES', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(636, NULL, 'PASSE COM FITA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(637, NULL, 'Impressão Em Agendas (Molestin)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(638, NULL, 'IMPRESSAO EM LONA DE 8MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(639, NULL, 'IMPRESSAO EM LONA DE 5MX5M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(640, NULL, 'IMPRESSAO EM LONA 5MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(641, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M -', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(642, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.70CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(643, NULL, ' IMPRESSÃO EM COLETE MULTIBOLSOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(644, NULL, 'IMPRESSÃO EM POLOS DE CORES', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(645, NULL, 'BONÉS DE COR BRANCOS PERSONALIZADOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(646, NULL, 'IMPRESSÃO E DECORAÇÃO DE A VIATAURA DE MARCA TOYOTA LAND CRUISE LC79 DOUBLE CAB', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(647, NULL, 'IMPRESSÃO E DE CORAÇÃO DE VIATURA DE MARCA CHERI TIGGO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(648, NULL, 'IMPRESSÃO E DECORAÇÃO DE VIATURA DE MARCA MINI AUTOCARRO TOYOTA COAS TER', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(649, NULL, 'IMPRESSÃO EM VINIL DE 3MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(650, NULL, 'IMPRESSÃO EM BANDEIRA DE 2MX1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(651, NULL, 'IMPRESSAO EM BANDEIRA DO MPLA DE 2.66CM X 90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(652, NULL, 'IMPRESSAO EM T-SHIRT .BRANCA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(653, NULL, 'IMPRESSAO EM LONA DE 8.33CM X 4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(654, NULL, 'IMPRESSÃO EM LONA DE 5M X 5M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(655, NULL, 'IMPRESSAO EM LONA DE 5M X 2M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(656, NULL, 'IMPRESSAO EM LONA DE 1.30CM X 75CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(657, NULL, 'IMPRESSAO EM LONA DE 95CM X 64CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(658, NULL, 'CRIAÇÃO .', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(659, NULL, 'IMPRESSÃO EM T-SHIRT .', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(660, NULL, 'IMPRESSAO EM LONA DE 2.30CM X 1.32CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(661, NULL, ' MASTRO PRATEADO DE MESA.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(662, NULL, 'MASTRO DOURADO DE MESA.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(663, NULL, 'ESFEROGRÁFICA SEM IMPRESSÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(664, NULL, 'Mastro de Sala Prateado', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(665, NULL, 'IMPRESSÃO DE VINIL PARA VIATURA DE MARCA JETUR MODELO X30', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(666, NULL, 'IMPRESSÃO EM BANDEIRA DE 2MX1.20CM DA REPUBLICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(667, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAIS DE 2MX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(668, NULL, 'IMPRESSÃO EM VINIL DE 1.80CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(669, NULL, 'IMPRESSAO EM LONA DE 8M X 1.90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(670, NULL, 'IMPRESSÃO EM VINIL DE 2MX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(671, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA COM MASTRO DE 1.90CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(672, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL COM MASTRO DE 1.90CM X 1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(673, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 1.40CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(674, NULL, 'IMPRESSAO EM VINIL DE 1.70CM X 75CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(675, NULL, 'IMPRESSAO EM VINIL DE 1.43CM X 78CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(676, NULL, 'IMPRESSÃO EM LONA DE 1.60CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(677, NULL, 'IMPRESSÃO EM BANDEIRAS INSTITUCIONAIS DE 1.90CMX1.35CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(678, NULL, 'IMPRESSÃO EM VINIL DE 1.65CM X 1.16CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(679, NULL, 'IMPRESSAO EM LONA DE 1.80CMX78CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(680, NULL, 'IMPRESSÃO EM LONA 98CMX68CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(681, NULL, 'IMPRESSÃO EM PASSE DE ACESSO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(682, NULL, 'IMPRESSÃO EM LONA DE 2MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(683, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA VERDE GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(684, NULL, 'PORTA CARTÕES PLASTICO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(685, NULL, 'LAPIS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(686, NULL, 'CADERNOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(687, NULL, 'PEN DRIVE PERSONALIZADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(688, NULL, 'PORTA-CHAVES PERSONALIZADOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(689, NULL, 'IMPRESSÃO EM LONA DE 2.85CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(690, NULL, 'IMPRESSÃO EM LONA DE 1.40CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(691, NULL, 'IMPRESSÃO EM LONAS DE 2MX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(692, NULL, 'IMPRESSAO EM LONA DE 2MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(693, NULL, 'IMPRESSÃO EM VINIL DE 1MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(694, NULL, 'IMPRESSÃO EM VINIL DE 80CMX20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(695, NULL, 'IMPRESSÃO EM VINIL DE 1MX0,8CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(696, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.20CMX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(697, NULL, 'IMPRESSÃO EM BANDEIRA DE 5MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(698, NULL, 'IMPRESSÃO EM BONÉ...', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(699, NULL, 'IMPRESSÃO EM LONA DE 4MX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(700, NULL, 'IMPRESSÃO EM T-SHIRT BRANCA - S, M,L,XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(701, NULL, 'IMPRESSÃO EM LONA DE 1.20CM X 90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(702, NULL, ' IMPRESSÃO EM VINIL DE 9.48CMX2.56CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(703, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERMELHA IPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(704, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAIS DE 1.50 CM X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(705, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(706, NULL, 'DECORAÇÃO NA VIATURA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(707, NULL, 'IMPRESSÃO DE VINIL E APLICAÇÃO NA VIATURA DE MARCA SUZUKI JIMNY ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(708, NULL, 'IMPRESSÃO EM VINIL DE 1.43CM 1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(709, NULL, 'IMPRESSÃO EM LONA DE 1.43CM X 1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(710, NULL, 'CAPAS TC IMPRESSÃO A 4/0 CORES EM COUCHÉ BRILHO 300 GRS COM PLASTICO BRILHO FRT APARADOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(711, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.20CMX1.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(712, NULL, 'IMPRESSÃO EM ESFEROGRAFICA DE COR AZUL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(713, NULL, 'IMPRESSÃO EM BANDEIRAS DE 2MX150CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(714, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.50CM X 1M.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(715, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 1.50CM X 1M.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(716, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.80CM X 1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(717, NULL, 'IMPRESSÃO EM BANDEIRA 1.80CM X 60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(718, NULL, 'IMPRESSAO EM VINIL DE 75CM X 75CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(719, NULL, 'CATALOGO AGRAFADO BANDA DESENHADA CAPA IMPRESSÃO A 4/4 CORES EM COUCHÉ BRILHO 250 GRS COM PLASTICO BRILHO FRT MIOLO ,IMPRESSAO A 4/4 CORES EM COUCHÉ BRILHO 135 GRS COM 88 PGS AGRAFADOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(720, NULL, 'CATALOGO AGRAFADO BANDA DESENHADA CAPA IMPRESSÃO A 4/4 CORES EM COUCHÉ BRILHO 250 GRS COM PLASTICO BRILHO FRT MIOLO ,IMPRESSÃO A 4/4 CORES EM COUCHÉ BRILHO 135 GRS COM 32 PGS AGRAFADOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(721, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(722, NULL, ' IMPRESSÃO EM LONA DE 6M X 1.80CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(723, NULL, 'IMPRESSÃO EM T-SHIRT PR', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(724, NULL, 'IMPRESSÃO EM BONE PR', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `artigos` (`id`, `codigo`, `designacao`, `tipo_id`, `retencao_id`, `categoria_id`, `imposto_id`, `preco`, `imagem_1`, `imagem_2`, `imagem_3`, `unidade`, `fornecedor_id`, `codigo_barra`, `is_stock`, `stock_minimo`, `stock_maximo`, `observacao`, `status`, `created_at`, `updated_at`) VALUES
+(725, NULL, 'IMPRESSÃO EM BANDEIRA DE 64X60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(726, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M DO PRS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(727, NULL, 'IMPRESSÃO EM T-SHIRTS DO PRS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(728, NULL, 'IMPRESSÃO EM BONÉS DO PRS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(729, NULL, 'CHAPÉUS PANAMÁ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(730, NULL, 'IMPRESSÃO EM VINIL DE 1.50CMX2.10CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(731, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.80CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(732, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.97CMX1.33CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(733, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.44CMX88CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(734, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.55CMX83CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(735, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.27CMX92CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(736, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.44CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(737, NULL, 'IMPRESSÃO EM ESFEROGRÁFICAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(738, NULL, 'IMPRESSÃO EM LONA DE 4M X 2.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(739, NULL, 'IMPRESSAO EM LONA DE 1.50CM X 1.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(740, NULL, 'IMPRESSAO EM LONA DE 1.18CM X 84CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(741, NULL, 'IIMPRESSAO EM LONA DE 1.43CMX1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(742, NULL, 'IMPRESSÃO EM LONA DE 5MX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(743, NULL, 'APLICAÇÃO EM VIATURA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(744, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA ESPECIAL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(745, NULL, 'FITA DE PESCOÇO DE CORDA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(746, NULL, 'IMPRESSÃO EM LONA DE 2.86CMX1.55CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(747, NULL, 'IMPRESSÃO EM VINIL DE 3MX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(748, NULL, 'ESFEROGRAFICA AZUL GROSSA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(749, NULL, 'IMPRESSÃO EM ESFEROGRAFICA VERMELHA GROSSA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(750, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(751, NULL, 'IMPRESSÃO EM POLOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(752, NULL, 'IMPRESSÃO EM SACOLAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(753, NULL, 'IMPRESSÃO EM ESFEROGRAFICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(754, NULL, 'IMPRESSÃO EM AGENDA AZUL (MOLESTIN) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(755, NULL, 'IMPRESSÃO EM VINIL DE 1.80CMX60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(756, NULL, 'IMPRESSÃO EM VINIL DE 1.43CMX1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(757, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA BRANCA GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(758, NULL, 'IMPRESSÃO EM BANDEIRA DE 50X70CM - PANAMA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(759, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM- ANGOLA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(760, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM -BRAVO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(761, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM -QUEBEC', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(762, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM -SONASURF', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(763, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.60CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(764, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX60CM -NOVEMBER', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(765, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX60CM-CHARLIE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(766, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX1M- BOURBON', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(767, NULL, 'IMPRESSÃO EM BANDEIRA DE 75CMX1M -PANAMA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(768, NULL, 'IMPRESSÃO EM BANDEIRA DE 75CMX1M -ANGOLA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(769, NULL, 'IMPRESSÃO EM BANDEIRA DE 75CMX1M -SONASURF', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(770, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM -CYPRUS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(771, NULL, 'ESFEROGRÁFICA PERSONALIZADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(772, NULL, 'IMPRESSÃO EM COLETE MULTIBOLSOS DE COR AZUL ESCURO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(773, NULL, 'IMPRESSÃO EM COLETE REFLECTOR ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(774, NULL, 'MPRESSÃO EM ESFEROGRÁFICA ESPECIAL DOURADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(775, NULL, 'IMPRESSÃO EM BONÉ AMARELO DE CAMPANHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(776, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(777, NULL, 'IMPRESSAO EM T-SHIRT AMARELA M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(778, NULL, 'IMPRESSAO EM T-SHIRT AMARELA L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(779, NULL, 'IMPRESSAO EM T-SHIRT AMARELA XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(780, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA XXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(781, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA XXXL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(782, NULL, 'IMPRESSAO EM BANDEIRA DE 1.40CM X 1M CASA-CE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(783, NULL, 'IMPRESSÃO EM COLETES MULTIBOLSOS AZUL MARINHO - OBSERVADOR NACIONAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(784, NULL, 'IMPRESSÃO EM COLETES MULTIBOLSOS AZUL MARINHO - OBSERVADOR INTERNACIONAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(785, NULL, 'IMPRESSÃO EM COLETE MULTIBOLSOS AZUL COM REFLETOR - ASSEGURAMENTO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(786, NULL, 'IMPRESSÃO EM VINIL DE 1.46CMX4.16CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(787, NULL, 'IMPRESSÃO EM LONA DE 2MX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(788, NULL, 'IMPRESSÃO EM LONA DE 1.50CMX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(789, NULL, 'IMPRESSÃO EM DÍSTICO DE 1.50MX2M- EM ALUSÃO AS FESTIVIDADES DO KILAMBA 11 ANOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(790, NULL, 'IMPRESSÃO EM SACOS TNT ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(791, NULL, 'IMPRESSÃO EM MOCHILAS - MATERIAL DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(792, NULL, 'IMPRESSÃO EM LONA DE 2.50CMX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(793, NULL, 'ROLL UP EXECUTIVO DE 2MX80CM IMPRENSO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(794, NULL, 'IMPRESSAO EM BANDEIRA DA REPUBLICA DE 1.70CM X 1.30CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(795, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 170CM X 130CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(796, NULL, 'PRESSÃO EM BANDEIRA INSTITUCIONAL DE 100CM X 70CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(797, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL DE 150CM X 100CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(798, NULL, 'IMPRESSÃO EM SACOLAS VERMELHAS 35 X 45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(799, NULL, 'IMPRESSÃO EM LONA 15m X 15m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(800, NULL, 'IMPRESSÃO EM LONA 5m X 8m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(801, NULL, 'IMPRESSÃO EM BANDEIRAS 1.40cm X 1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(802, NULL, 'IMPRESSÃO EM VINIL 200m X 1.50cm(10.000) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(803, NULL, 'IMPRESSÃO EM VINIL DE 90CMX1.78CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(804, NULL, 'IMPRESSÃO EM VINIL DE 90CMX1.90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(805, NULL, 'IMPRESSÃO EM VINIL DE 2.42CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(806, NULL, 'IMPRESSÃO EM VINIL DE 2.40CMX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(807, NULL, 'IMPRESSÃO EM LONAS DE 90CMX1.10CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(808, NULL, 'IMPRESSAO EM ESFEROGRAFICA DO CLIENTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(809, NULL, 'IMPRESSAO EM CACHECOL CASA CE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(810, NULL, 'Impressão em Bandeira Institucional de 1.40 x 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(811, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.43CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(812, NULL, 'IMPRESSÃO EM BONÉ AMARELO DE CAMPANHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(813, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(814, NULL, 'IMPRESSÃO EM T-SHIRT AMARELA L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(815, NULL, 'IMPRESSÃO E DECORAÇÃO DE VIATURA DE MARCA JETER MODELO X30', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(816, NULL, 'IMPRESSÃO EM BANDEIRA DO EXTERIOR DE 1.40CMX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(817, NULL, 'IMPRESSÃO EM BANDEIRA DO INTERIOR 1.90CMX1.4CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(818, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.39CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(819, NULL, 'IMPRESSÃO EM BANDEIRA DE 2MX1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(820, NULL, 'IMPRESSAO EM ESFEROGRAFICA VERDE GROSSA IPAD', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(821, NULL, 'IMPRESSÃO EM LONA DE 3MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(822, NULL, 'CRIAÇÃO DE ARTES GRÁFICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(823, NULL, 'IMPRESSÃO E DECORAÇÃO DE VIATURA DE MARCA MINI AUTOCARROS COASTER', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(824, NULL, 'IMPRESSÃO EM ESFEROGRÁFICA COR DE VINHO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(825, NULL, ' BANDEIRA DE 1.84CMX1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(826, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.70CMX41CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(827, NULL, 'IMPRESSÃO EM BANDEIRA DE 3.30CMX72CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(828, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX1M -P NJANGO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(829, NULL, 'IMPRESSÃO EM BANDEIRA DE 75CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(830, NULL, 'ESFEROGRÁFICA ESPECIAL DOURADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(831, NULL, 'ESFEROGRÁFICA ESPECIAL AZUL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(832, NULL, 'ESFEROGRÁFICA ESPECIAL PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(833, NULL, 'IMPRESSAO EM LONA DE 150 CM X 150 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(834, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 1.M X 5M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(835, NULL, 'IMPRESSÃO EM VINIL DE 1.53CMX2.43CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(836, NULL, 'IMPRESSÃO EM LONA DE 88CMX1.86CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(837, NULL, 'IMPRESSÃO EM LONA DE 90CMX1.10CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(838, NULL, 'IMPRESSÃO EM BANDEIRA DE 3MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(839, NULL, 'IMPRESSÃO EM AGENDA BRANCA (MOLESTIN)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(840, NULL, 'IMPRESSÃO EM AGENDA PRETA (MOLESTIN)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(841, NULL, 'Agendas Azul Com Impressão (Molestin)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(842, NULL, 'IMPRESSÃO EM SACOLAS TNT BRANCAS 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(843, NULL, 'IMPRESSÃO EM SACOLAS TNT PRETAS 35/45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(844, NULL, 'IMPRESSÃO EM ESFEROGRAFICA PRETA. IPAD ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(845, NULL, 'IMPRESSÃO EM ESFEROGRAFICA COR DE VINHO. IPAD ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(846, NULL, 'IMPRESSÃO EM ESFEROGRAFICA COR BRANCA. IPAD ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(847, NULL, 'IMPRESSÃO EM ESFEROGRAFICA COR AZUL. IPAD ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(848, NULL, 'IMPRESSAO EM BANDEIRA INSTITUCIONAL DE 2.M X 1.40M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(849, NULL, 'Impressão em Esferográficas Azul Especial ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(850, NULL, 'IMPRESSÃO EM FLYBANNER DE 3.20CMX70CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(851, NULL, 'IMPRESSÃO EM VINIL DE 84CMX1.90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(852, NULL, 'IMPRESSÃO EM VINIL1.58CMX1.82CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(853, NULL, 'IMPRESSÃO EM VINIL DE 12.6CMX1.8CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(854, NULL, 'IMPRESSÃO EM VINIL DE 3.60CMX1.8CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(855, NULL, 'FATO OLÍMPICO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(856, NULL, 'Impressão bandeira de 1.80cmx1.20cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(857, NULL, 'IMPRESSÃO EM VINIL DE 3MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(858, NULL, 'IMPRESSÃO EM VINIL DE 3M X 3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(859, NULL, 'Fato Olímpico (Fato Cola Desportivo)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(860, NULL, 'Impressão em Mochilas', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(861, NULL, 'IMPRESSÃO EM VINIL DE 98CMX1.79CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(862, NULL, 'IMPRESSÃO EM VINIL DE 2.39CMX40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(863, NULL, 'Agendas Laranja Com Impressão (Molestin)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(864, NULL, 'Impressão Em Polo Cor Laranja ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(865, NULL, 'IMPRESSÃO EM LONA DE 1MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(866, NULL, 'IMPRESSÃO EM LONAS DE 3.50CMX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(867, NULL, 'IMPRESSÃO EM T-SHIRT DE COR VERMELHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(868, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR VERDE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(869, NULL, 'IMPRESSAO EM COLETE MULTBOLSOS PRETO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(870, NULL, 'IMPRESSÃO EM LONA DE 6MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(871, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.79CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(872, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM - REPUBLICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(873, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX60CM - NAUTICO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(874, NULL, 'IMPRESSÃO EM BANDEIRA DE 50CMX70CM - PANAMA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(875, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(876, NULL, 'IMPRESSÃO EM BANDEIRINHAS DA REPUBLICA DE 45CMX30CM C/ PEGA DE MADEIRA 45CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(877, NULL, 'MASTRO DE SALA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(878, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.90CMX1.40CM PARA O BLOCO DEMOCRÁTICO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(879, NULL, 'IMPRESSÃO EM LONA (DÍSTICO) DE 2MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(880, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.52CMX88CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(881, NULL, 'CALÇA DE COR BRANCA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(882, NULL, 'PLACA BLAQUELITE DE 87 CM X 1.22 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(883, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR AZUL ROYAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(884, NULL, 'EXTENSÍVEIS DE CORES', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(885, NULL, 'MASTRO DE MESA PRATA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(886, NULL, ' CRIAÇÃO DA ARTE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(887, NULL, 'IMPRESSÃO EM LONA DE 2MX1.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(888, NULL, 'APLICAÇÃO DA LONA DE 2MX1.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(889, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX0.90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(890, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.20CMX0.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(891, NULL, 'IMPRESSÃO EM BANDEIRA DE 12CMX17CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(892, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX1M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(893, NULL, 'IMPRESSÃO EM BANDEIRINHAS DE 80CMX60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(894, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.90CMX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(895, NULL, 'IMPRESSÃO EM BANDEIRINHAS PARA VIATURA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(896, NULL, 'IMPRESSÃO EM COLETE MULTIBOLSOS AZUL COM REFLETORA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(897, NULL, 'IMPRESSÃO EM LONA DE 5MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(898, NULL, 'IMPRESSÃO EM VINIL DE 60CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(899, NULL, 'IMPRESSÃO EM VINIL DE 70CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(900, NULL, 'IMPRESSÃO EM VINIL DE 1.44CMX73CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(901, NULL, 'IMPRESSÃO EM VINIL DE 1.05CMX2.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(902, NULL, 'IMPRESSÃO EM VINIL DE 1.90CMX75CM- DA PORTA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(903, NULL, 'IMPRESSÃO EM VINIL DE 30CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(904, NULL, 'IMPRESSÃO EM VINIL DE 2MX90CM - VERSO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(905, NULL, 'IMPRESSÃO EM VINIL DE 1.80CMX78CM - CAPO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(906, NULL, 'IMPRESSÃO EM VINIL DE 5MX4.05CM -LATERAL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(907, NULL, 'Bandeirinhas de Mesa', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(908, NULL, 'Pen Drive Com Impressão (M.do Cliente)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(909, NULL, 'Polos Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(910, NULL, 'Tshirt Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(911, NULL, 'IMPRESSÃO EM BANDEIRA DE 1MX88CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(912, NULL, 'IMPRESSÃO EM LONA DE 4MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(913, NULL, 'Rool Up ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(914, NULL, 'Vinil normal 1.84x0.76cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(915, NULL, 'Criação de Lona', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(916, NULL, 'IMPRESSÃO EM BACKDROP (LONA) DE 4MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(917, NULL, 'IMPRESSÃO EM LONA DE 5M X 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(918, NULL, 'Vinil 1.14cmX0.65cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(919, NULL, 'Agendas Branca Com Impressão (Molestin)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(920, NULL, 'Impressão de Vinil 1.14cmX0.65cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(921, NULL, 'Impressão de Vinil 4.30 x1.20', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(922, NULL, 'Calça Multibolso', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(923, NULL, 'IMPRESSÃO EM T-SHIRTS DESPORTIVA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(924, NULL, 'Agendas Pretas Com Impressão (Molestin)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(925, NULL, 'AGENDA 2023 (VARIAS CORES A5) PERSONALIZADA NA CAPA E SUB-CAPA NOS VERSOS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(926, NULL, 'AGENDA (MOLESTIN) PERSONALIZADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(927, NULL, 'ESFEROGRÁFICA DE COR PRETA FINA COM DOURADO PERSONALIZADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(928, NULL, 'IMPRESSÃO EM VINIL DE 1.79CMX89CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(929, NULL, 'MPRESSÃO EM LONA DE 2MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(930, NULL, 'IMPRESSÃO EM LONA DE 3.20CMX1.94CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(931, NULL, 'ESFEROGRÁFICA VERMELHA GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(932, NULL, 'Esferográfica Vermelha Grossa Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(933, NULL, 'IMPRESSÃO EM LONA DE 2MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(934, NULL, 'T-SHERT PRETA COM IMPRESSÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(935, NULL, 'T-SHERT BRANCA COM IMPRESSÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(936, NULL, 'IMPRESSÃO EM VINIL DE 1.78CMX99CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(937, NULL, 'IMPRESSÃO EM VINIL DE 99CMX49CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(938, NULL, 'IMPRESSÃO EM VINIL DE 1.20CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(939, NULL, 'IMPRESSÃO EM VINIL DE 2.70CMX2.04CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(940, NULL, 'IMPRESSÃO EM VINIL DE 65CMX82CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(941, NULL, 'IMPRESSAO EM VINIL DE 4MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(942, NULL, 'ESFEROGRÁFICA BRANCA GROSSA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(943, NULL, 'Lona 7.26CM x 1M Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(944, NULL, 'ESFEROGRÁFICA ESPECIAL VERMELHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(945, NULL, 'ESFEROGRÁFICA ESPECIAL CASTANHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(946, NULL, 'IMPRESSÃO EM LONA DE 2MX6M (DISTICO)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(947, NULL, 'Sacolas 35/45 Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(948, NULL, 'IMPRESSÃO EM TSHIRT DE CRIANÇA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(949, NULL, 'SPOT DE TV - Produção, Edição Finalização', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(950, NULL, 'SPOT DE RÁDIO Produção, Edição Finalização', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(951, NULL, 'FINALIZAÇAO P/ REDES SOCIAIS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(952, NULL, 'CRIAÇÃO E IMPRESSÃO DE ROLL- UP', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(953, NULL, 'CRIAÇÃO E IMPRESSÃO DE BACKDROP 4MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(954, NULL, 'CRIAÇÃO E IMPRESSÃO DE OUTDOOR 6MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(955, NULL, 'VIDEO INSTITUCIONAL PRODUÇÃO, EDIÇÃO E FINALIZAÇÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(956, NULL, 'PRODUÇÃO GRAFICA - FOLDER DESDOBRAVEIS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(957, NULL, 'PRODUÇÃO GRAFICA - BLOCOS DE ANOTAÇÃO A5', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(958, NULL, 'PRODUÇÃO GRAFICA - CAPAS DE PROCESSO A4', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(959, NULL, 'PRODUÇÃO GRAFICA - PASSES DE ID 5 RUBRICAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(960, NULL, 'DIVULGAÇÃO- ANUNCIO EM JORNAL CRIAÇÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(961, NULL, 'T-Shert Azul Royal (S)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(962, NULL, 'T-Shert Azul Royal (M)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(963, NULL, 'T-Shert Azul Royal (L)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(964, NULL, 'T-Shert Azul Royal (XL)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(965, NULL, 'T-Shert Azul Royal (XXL)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(966, NULL, 'Avental', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(967, NULL, 'LONA DE 2M X 2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(968, NULL, 'Material EPIS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(969, NULL, 'ESFEROGRÁFICA LARANJA GROSSA COM IMPRESSÃO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(970, NULL, 'IMPRESSÃO EM LONA DE 3MX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(971, NULL, 'Lona 5M x 1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(972, NULL, 'BATAS BRANCAS MANGA COMPRIDAS TAMANHO XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(973, NULL, 'BATAS BRANCAS MANGA COMPRIDAS TAMANHO L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(974, NULL, 'CONJUNTO DE TÚNICA BRANCA TAMANHO XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(975, NULL, 'CONJUNTO DE TÚNICA BRANCA TAMANHO L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(976, NULL, 'CONJUNTO DE TÚNICA BRANCA PARA ENFERMEIROS TAMANHO XL ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(977, NULL, 'CONJUNTO DE TÚNICA BRANCA PARA ENFERMEIROS TAMANHO M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(978, NULL, 'CONJUNTO DE TÚNICA BRANCA PARA ENFERMEIROS TAMANHO L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(979, NULL, 'CONJUNTO DE TÚNICA AZUL ESCURA (LABORATÓRIO) TAMANHO XL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(980, NULL, 'PIJAMAS PARA CRIANÇAS IDADES (0 AOS 2 ANOS)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(981, NULL, 'PIJAMAS PARA CRIANÇAS IDADES (3 AOS 6 ANOS )', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(982, NULL, 'PIJAMAS PARA CRIANÇAS IDADES (7 AOS 12 ANOS )', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(983, NULL, 'LENÇÓIS BRANCOS (ADULTOS) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(984, NULL, 'LENÇÓIS INFANTIS (PEDIÁTRICO)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(985, NULL, 'Placas de Alumínio Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(986, NULL, 'IMPRESSÃO EM LONA DE 5MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(987, NULL, 'IMPRESSÃO EM VINIL DE 2MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(988, NULL, 'T-Shert Branca Criança 5/6', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(989, NULL, 'T-Shert Branca Criança 7/8', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(990, NULL, 'T-Shert Branca Criança 10/11', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(991, NULL, 'T-Shert Branca Criança 12/13', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(992, NULL, 'T-Shert Branca Criança 14/15', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(993, NULL, 'Polo Branca -M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(994, NULL, 'Polo Branca -S ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(995, NULL, 'Polo Branca -L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(996, NULL, 'Polo Branca -XI', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(997, NULL, 'T-Shirt Rosa S', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(998, NULL, 'Esferográfica Material do Cliente (Print) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(999, NULL, 'CANECAS PERSONALIZADAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1000, NULL, 'CANECAS TÉRMICAS PERSONALIZADAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1001, NULL, 'Bandeirinha da República 45x32', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1002, NULL, 'IMPRESSÃO EM ESFEROGRAFICA VERDE ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1003, NULL, 'CALÇA MULTIBOLSO VERDE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1004, NULL, 'Impressão Sacolas Brancas 30/37', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1005, NULL, 'FITA DE PESCOÇO DE COR LARANJA SEM IMPRESSÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1006, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 28', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1007, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 30', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1008, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 32', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1009, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 34', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1010, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 36', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1011, NULL, 'Calça Social Mascolino Cinza Escuro Tamanho 38', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1012, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (L)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1013, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (M)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1014, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (G)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1015, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (GG)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1016, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (XL)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1017, NULL, 'Camisa Social Masculina Cinza Claro Mangas Longas (XXL)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1018, NULL, 'T-Shirt Preta Tecido Algodão (L) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1019, NULL, 'T-Shirt Preta Tecido Algodão (M) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1020, NULL, 'T-Shirt Preta Tecido Algodão (G) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1021, NULL, 'T-Shirt Preta Tecido Algodão (GG) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1022, NULL, 'T-Shirt Preta Tecido Algodão (XL) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1023, NULL, 'T-Shirt Preta Tecido Algodão (XXL) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1024, NULL, 'Casaco Estilo Militar Cinza Escuro Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1025, NULL, 'T-Shirt Preta Tecido Algodão', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1026, NULL, 'Camisa Social Masculina Cinza Claro Mangas', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1027, NULL, 'Calça Social Masculina Cinza Escuro', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1028, NULL, 'Polo Branca (L) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1029, NULL, 'Polo Branca (M) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1030, NULL, 'Polo Branca (S) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1031, NULL, 'Polo Branca (XL) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1032, NULL, 'Polo Branca (XXL) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1033, NULL, 'T-Shirt Branca (S) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1034, NULL, 'T-Shirt Branca (L)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1035, NULL, 'T-Shirt Branca (M) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1036, NULL, 'T-Shirt Branca (XL) Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1037, NULL, 'T-Shirt Branca (XL)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1038, NULL, 'T-Shirt Branca (XXL) ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1039, NULL, 'T-Shirt Branca (M) Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1040, NULL, 'T-Shirt Branca (S) Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1041, NULL, 'Polo Branca Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1042, NULL, 'IMPRESSÃO EM LONA DE 4.40CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1043, NULL, 'TB (ESFEROGRAFICA LARANJA IPAD)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1044, NULL, 'TB (ESFEROGRAFICA PRETA IPAD)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1045, NULL, 'TB (ESFEROGRAFICA VERDE IPAD)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1046, NULL, 'TB (ESFEROGRAFICA AZUL ESCURA IPAD)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1047, NULL, 'IMPRESSÃO EM VINIL DE 3MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1048, NULL, 'IMPRESSÃO EM T-SHIRTS DE ANIVERSARIO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1049, NULL, 'MASTRO DE SALA DE COR DOURADO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1050, NULL, 'IMPRESSÃO EM LONA 8.33CMX4.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1051, NULL, 'IMPRESSÃO EM LONA DE 5MX5M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1052, NULL, 'IMPRESSÃO EM LONA DE 5MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1053, NULL, 'BONÉS INFANTIS DE COR BRANCO PERSONALIZADOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1054, NULL, 'IMPRESSÃO EM T-SHIRTS DE CRIANÇA DE AMARELA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1055, NULL, 'IMPRESSÃO EM T-SHIRTS DE CRIANÇA DE COR LARANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1056, NULL, 'IMPRESSÃO EM T-SHIRTS DE CRIANÇA DE COR VERMELHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1057, NULL, 'IMPRESSÃO EM T-SHIRTS DE CRIANÇA DE COR AZUL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1058, NULL, 'Bandeira 1.50CM x 1M PNA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1059, NULL, 'Bandeira 1.50CM x 1M Republica', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1060, NULL, 'Impressão em Lona ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1061, NULL, 'Impressão em Boné ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1062, NULL, 'Impressão em Sacolas TNT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1063, NULL, 'Estrutura Metálica', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1064, NULL, 'Impressão em Esferográficas', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1065, NULL, 'Jardineira ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1066, NULL, 'Colete Multibolso L', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1067, NULL, 'Túnica Com Calça ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1068, NULL, 'IMPRESSÃO EM T-SHIRTS MATERIAL DO CLIENTE (CAZENGA)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1069, NULL, ' IMPRESSÃO EM BANDEIRAS INSTITUCIONAL DE 1.90CMX1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1070, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 1.90CMX1.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1071, NULL, 'Tshirt Vermelha Com Impressão ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1072, NULL, 'IMPRESSÃO EM LONA DE 1.20CM X 80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1073, NULL, 'Flayers ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1074, NULL, 'Canecas Personalizadas ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1075, NULL, 'Balcões Promocional', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1076, NULL, 'Calendario de Parede', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1077, NULL, 'Tenda', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1078, NULL, 'Base de Mouse', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1079, NULL, 'Decoração de Autocarro', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1080, NULL, 'IMPRESSÃO EM ESFEROGRAFICA ESPECIAL PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1081, NULL, 'IMPRESSÃO EM ASFEROGRAFICAS VERMELHA E DOURADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `artigos` (`id`, `codigo`, `designacao`, `tipo_id`, `retencao_id`, `categoria_id`, `imposto_id`, `preco`, `imagem_1`, `imagem_2`, `imagem_3`, `unidade`, `fornecedor_id`, `codigo_barra`, `is_stock`, `stock_minimo`, `stock_maximo`, `observacao`, `status`, `created_at`, `updated_at`) VALUES
+(1082, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 5MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1083, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 3MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1084, NULL, 'IMPRESSÃO EM COLETE REFLETOR', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1085, NULL, 'CALÇAS MULTIBOLSOS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1086, NULL, 'Impressão em Vinil de 1.50 cm x 1 m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1087, NULL, 'IMPRESSÃO EM POLOS PRETAS', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1088, NULL, 'IMPRESSÃO EM POLOS VERDES', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1089, NULL, 'BANDEIRA DE 1.40CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1090, NULL, 'MPRESSÃIO EM LONA (15M) 10mx1,5cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1091, NULL, 'IMPRESSÃIO EM LONA (12M) 6mx2cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1092, NULL, 'IMPRESSÃIO EM LONA (6M) 6mx1cm', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1093, NULL, 'IMPRESSÃIO EM LONA (4M) 2mx2m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1094, NULL, 'IMPRESSÃO EM VINIL DE 1.99CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1095, NULL, 'IMPRESSÃO EM LONA DE 6MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1096, NULL, 'IMPRESSÃO EM LONA DE 4MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1097, NULL, 'IMPRESSÃO EM LONA DE 2.20CM X 1.95CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1098, NULL, 'IMPRESSÃ EM ESFEROGRÁFICA FINA VINHO E DOURADA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1099, NULL, 'IMPRESSÃO EM LONA DE 6MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1100, NULL, 'TB (ESFEROGRAFICA PRETA FINA DOURADA )', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1101, NULL, 'TB (ESFEROGRAFICA VERMELHA FINA DOURADA )', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1102, NULL, 'ESFEROGRÁFICA AZUL E BRANCA DE MESA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1103, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.10CMX90CM DA ZEE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1104, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.10CMX90CM DA - ANGOLA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1105, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.10CMX90CM DO -GAI', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1106, NULL, 'IMPRESSÃO EM VINIL DE 6.20CMX 2.45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1107, NULL, 'IMPRESSÃO EM VINIL DE 1.53CMX2.45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1108, NULL, 'IMPRESSÃO EM LONA DE 5.50CMX45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1109, NULL, 'IMPRESSÃO EM VINIL 1MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1110, NULL, 'Chouriço de Carne Corrente Caixa (12 UN)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1111, NULL, 'Salsicha Caixa (8 UN) 12LT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1112, NULL, 'Salsicha Caixa (6 UN) 12LT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1113, NULL, 'Fitas de Pescoço Azul', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1114, NULL, 'Sombrinha Preta ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1115, NULL, 'Sombrinha Branca', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1116, NULL, 'Eletrobomba ref 46JSN7A10A, JSWm2C-1HP/075KW', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1117, NULL, 'Eletrobomba 46JS8AL05A, JSWm 3CLN 1,5 HP/1,1 KW', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1118, NULL, 'Electrobomba ref 46JSN8AL10 JSWm3BL 2 HP/1,5 Kw', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1119, NULL, 'Eletrobomba TOP2 VÓRTEX — 0,5HP/0,37 KW Submersível', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1120, NULL, 'IMPRESSÃO EM LONA DE 8MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1121, NULL, 'IMPRESSÃO EM LONA DE 2MX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1122, NULL, 'IMPRESSÃO EM LONA DE 15MX6M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1123, NULL, 'IMPRESSÃO EM LONA DE 10.10MX1.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1124, NULL, 'IMPRESSÃO EM LONA DE 9.20CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1125, NULL, 'IMPRESSÃO EM LONA DE 1.65CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1126, NULL, 'IMPRESSÃO EM LONA DE 1.35CMX95CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1127, NULL, 'IMPRESSÃO EM VINIL DE 90CMX1.99CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1128, NULL, 'HP COMPUTADOR ALL-IN-ONE 20.7\" FHD J4025 4G 256 SSD WINDOWS 11 HOME BRANCO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1129, NULL, 'ACABAMENTO EM BANDEIRAS MEDIAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1130, NULL, 'ACABAMENTO EM BANDEIRAS MEDIAS COM FRANJA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1131, NULL, 'IMPRESSÃO E APLICAÇÃO DE VINIL NO CAMIÃO COM AS MEDIDAS 5.50CMX1.80CM (CONTENTOR) E 65CMX22CM (NA CABINE)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1132, NULL, 'IMPRESSÃO EM VINIL DE PARA A CABINE 65CM X 22CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1133, NULL, 'IMPRESSÃO EM BANDEIRA DE 2MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1134, NULL, 'IMPRESSÃO EM BANDEIRA PARA O INTERIOR DE 1.90CMX1.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1135, NULL, 'IMPRESSÃO EM LONA DE 2MX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1136, NULL, 'IMPRESSÃO EM VINIL DE 2MX80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1137, NULL, 'Vinil de 8m x 1m', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1138, NULL, 'IMPRESSÃO EM LONA 2MX1.60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1139, NULL, 'TB ( esferográfica Fina Azul e dourada)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1140, NULL, 'TB ( esferográfica Fina Vinho e dourada)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1141, NULL, 'TB ( esferográfica Ipad vermelha)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1142, NULL, 'IMPRESSÃO EM LONA DE 1.43CM X1.15CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1143, NULL, 'IMPRESSÃO EM LONA DE 1.20CMX5M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1144, NULL, 'IMPRESSÃO EM LONA DE 1.50CMX70CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1145, NULL, 'IMPRESSÃO EM LONA DE 6MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1146, NULL, 'IMPRESSÃO EM LONA (DÍSTICO) DE 2.50CMX75CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1147, NULL, 'PLACAS EM PVC PERSONALIZADAS ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1148, NULL, 'IMPRESSÃO EM FITA DE PESCOÇO E O SUPORTE DE PASSE (CONJUNTO)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1149, NULL, 'IMPRESSÃO EM VINIL DE 1.50MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1150, NULL, 'KINGSTONE SSD 2.5 960GB SATA III', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1151, NULL, 'KASPERSY ENDPOINT SECURITY 350 USER', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1152, NULL, 'MICROSOFT OFFICE 221 PT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1153, NULL, 'MICROSOFT WINDOWS 10', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1154, NULL, 'Impressão em Agendas (Molestin).', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1155, NULL, 'Polos', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1156, NULL, 'IMPRESSÃO EM LONA 16MX10M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1157, NULL, 'IMPRESSÃO EM LONA DE 4MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1158, NULL, 'IMPRESSÃO EM VINIL DE 4.50CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1159, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40X90CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1160, NULL, 'IMPRESSÃO EM LONA DE 4MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1161, NULL, 'IMPRESSÃO EM LONA DE 1.60CMX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1162, NULL, 'IMPRESSÃO EM VINIL DE 1.70CMX50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1163, NULL, 'IMPRESSÃO EM VINIL DE 84CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1164, NULL, 'Bandeira Interior da Republica 1.85 x 1,30', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1165, NULL, 'Bandeira Samizade 1.85 x 1,30', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1166, NULL, 'Bandeira Samizade 1.37 x 0,90', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1167, NULL, 'Bandeira Exterior 1.37 x 0,90', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1168, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.40CMX90CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1169, NULL, 'VEAM BACKUP E REPLICATION V11', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1170, NULL, 'KASPERSKY ENDPOINT SECURITY 350 USER ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1171, NULL, 'MICROSOFT OFFICE 2021 PT', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1172, NULL, 'VMWARE ESXI 7.1 INTERPRISE ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1173, NULL, 'SQL Server 2022', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1174, NULL, 'FIREWALL CISCO IRS 4140', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1175, NULL, 'DELL POWERMAX 2000', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1176, NULL, 'TOOL KIT DE FERRAMENTAS DE REDE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1177, NULL, 'BERBEQUIM BOCHS SDS PLUS 1500W', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1178, NULL, 'CABO CONSOLE CISCO USB C TO RJ45', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1179, NULL, 'BROTHER MAQUINA DE ETIQUETAR PT -H110', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1180, NULL, 'ORGANIZADOR DE CABOS MD9', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1181, NULL, 'FLUKE NETWORKS LIQ -100- IE TESTADOR ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1182, NULL, 'HP MONITOR 28 U28 4K', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1183, NULL, 'MACBOOK PRO DOCKING STATION MOKIN', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1184, NULL, 'APPLE MAGIC TECLADO RATO SEM FIO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1185, NULL, 'BRAÇADEIRAS 22', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1186, NULL, 'CABO DE FIBRA OPTICA 400M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1187, NULL, 'CAIXA DE CONECTORES RJ45 DLINK', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1188, NULL, 'CAIXAS DE BUCHAS 8MM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1189, NULL, 'PARAFUSOS E BUCHAS METALICA 10MM ZAMAK', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1190, NULL, 'ARMARIO 09U 600X450 19', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1191, NULL, 'CABO REDE 350M UTP CAT6 DLINK', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1192, NULL, 'SWITCH 16 PORTAS CISCO 24P POE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1193, NULL, 'ROUTER CISCO 4100 SERIE', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1194, NULL, 'CALHA 85X50MM DIR 1TP45 MT LEGRAND', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1195, NULL, 'TOMADAS RJ45 LEGRAND', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1196, NULL, 'ACESS POINT WIFI 300MB N DLINK', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1197, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 3MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1198, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 5MX2M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1199, NULL, 'IMPRESSÃO EM VINIL DE 1.50CMX2.45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1200, NULL, 'IMPRESSÃO EM LONA DE 6.2CMX2.45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1201, NULL, 'IMPRESSÃO EM VINIL DE 6.20CMX2.45CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1202, NULL, 'IMPRESSÃO EM VINIL DE 50CMX70CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1203, NULL, 'IMPRESSAO EM VINIL DE 85CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1204, NULL, 'IMPRESSÃO EM VINIL DE 80CMX1.60CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1205, NULL, 'IMPRESSÃO EM VINIL DE 1.60CMX1.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1206, NULL, 'IMPRESSÃO EM LONA DE 10MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1207, NULL, 'IMPRESSÃO EM LONA DE 5MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1208, NULL, 'IMPRESSÃO EM LONA DE 6MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1209, NULL, 'IMPREESÃO EM ESFEROGRAFICA (BANCO KEVE)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1210, NULL, 'IMPREESÃO EM ESFEROGRAFICA (BANCO BCI)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1211, NULL, 'IMPREESÃO EM ESFEROGRAFICA (VIVA SEGUROS)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1212, NULL, 'IMPRESSÃO EM TSHIRT (VIVA SEGURO)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1213, NULL, 'IMPRESSÃO EM TSHIRT (BCI)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1214, NULL, 'BONÉ PERSONALIZADO (BANCO KEVE)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1215, NULL, 'BONÉ PERSONALIZADO (BANCO BCI)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1216, NULL, 'BONÉ PERSONALIZADO (VIVA SEGUROS)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1217, NULL, 'IMPRESÃO EM ESFEROGRAFICA AZUL IPAD (ESPAES)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1218, NULL, 'IMPRESSAO EM AGENDAS MOLESTIN AZUL (ESPAES)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1219, NULL, 'T-SHIRT VERMELHA(S)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1220, NULL, 'T-SHIRT VERMELHA(M)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1221, NULL, 'T-SHIRT VERMELHA(L)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1222, NULL, 'IMPRESSÃO EM VINIL DE 2MX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1223, NULL, 'PIN COM LOGOTIPO DA EMPRESA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1224, NULL, 'IMPRESSÃO EM BANDEIRA 1.50X2.00 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1225, NULL, 'IMPRESSÃO EM BANDEIRA 1.70X1.00 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1226, NULL, 'IMPRESSÃO EM BANDEIRA 1.40X2.00 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1227, NULL, 'IMPRESSÃO EM BANDEIRA DA REPÚBLICA DE 1.60CM X 1.12CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1228, NULL, 'IMPRESSÃO EM VINIL E PLACA BACLETE TAMANHO A4', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1229, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 1.50X2 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1230, NULL, 'IMPRESSÃO EM BANDEIRA INSTITUCIONAL 1.00X1.70 ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1231, NULL, 'IMPRESSÃO EM LONA 3X2', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1232, NULL, 'IMPRESSÃO EM T-SHIRTS DE COR PRETA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1233, NULL, 'FITA DE PESCOÇO DE COR PRETA SEM IMPRESSÃO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1234, NULL, 'APLICAÇÃO DE VINIL', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1235, NULL, 'IMPRESSÃIO EM LONA (3.2) 1.60X2.00', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1236, NULL, 'IMPRESSÃO EM BANDEIRA DE 3MX5M DA REPUBLICA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1237, NULL, 'IMPRESSÃO EM BANDEIRA DE 3MX2M DA REPUBLICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1238, NULL, 'IMPRESSÃO EM BANDEIRA DE 3M X 2M DA REPUBLICA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1239, NULL, 'IMPRESSÃO EM VINIL 2.40CMX97CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1240, NULL, 'IMPRESSÃO EM VINIL 40CMX1.97CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1241, NULL, 'IMPRESSÃO EM VINIL 5.90CMX2.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1242, NULL, 'IMPRESSÃO EM VINIL 3CMX2.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1243, NULL, 'IMPRESSÃO EM VINIL 1.50CMX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1244, NULL, 'IMPRESSÃO EM VINIL 1.50CMX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1245, NULL, 'IMPRESSÃO EM VNIL DE 87 CM X 1.22 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1246, NULL, 'IMPRESSÃO EM FITA DE PESCOÇO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1247, NULL, 'IMPRESSÃO EM LONA DE 20MX4M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1248, NULL, 'IMPRESSÃO LONA DE 5.72CMX3.75CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1249, NULL, 'IMPRESSÃO EM LONA DE 1.60CM X1.75CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1250, NULL, 'IMPRESSÃO EM BONE DE CAMPANHA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1251, NULL, 'IMPRESSÃO EM LONA DE 6 M x 2.35 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1252, NULL, 'IMPRESSÃO EM LONA DE 2.94 M x 1.66 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1253, NULL, 'IMPRESSÃO EM LONA DE 5.73 M x 2.96 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1254, NULL, 'IMPRESSÃO EM LONA DE 5.73 M x 2.87 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1255, NULL, 'IMPRESSÃO EM LONA DE 6.13 M x 3.02 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1256, NULL, 'IMPRESSÃO EM VINIL 97CMX2.40M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1257, NULL, 'IMPRESSÃO EM VINIL 2MX3M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1258, NULL, 'IMPRESSÃO EM VINIL 2.93CMX2.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1259, NULL, 'IMPRESSÃO EM VINIL 5.85CMX2.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1260, NULL, 'IMPRESSÃO EM VINIL 1.50CMX2.80CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1261, NULL, 'MASTRO DE MESA PRATA DUPLO ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1262, NULL, 'IMPRESSÃO EM VINIL DE 80CMX3M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1263, NULL, 'IMPRESSÃO EM VINIL DE 1MX2M ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1264, NULL, 'IMPRESSÃO EM VINIL DE 2.94CMX2.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1265, NULL, 'IMPRESSÃO EM VINIL DE 2.92CMX2.40CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1266, NULL, 'IMPRESSÃO EM VINIL DE 5.84CMX2.40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1267, NULL, 'IMPRESSÃO EM VINIL DE 1.97CMX40CM ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1268, NULL, 'IMPRESSÃO EM LONA DE 2MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1269, NULL, 'IMPRESSÃO EM LONA DE 30MX2M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1270, NULL, 'APLICAÇÃO DA LONA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1271, NULL, 'IMPRESSÃO EM LONA DE 2.50CMX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1272, NULL, 'IMPRESSÃO EM BANDEIRA DE 80CMX1.20CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1273, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA 1.30CMX1.85CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1274, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 0.90CMX1.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1275, NULL, 'IMPRESSÃO EM BANDEIRA DA ELISAL 1.30CMX1.85CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1276, NULL, 'IMPRESSÃO EM BANDEIRA DA ELISAL 0.90CMX1.30CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1277, NULL, 'IMPRESSÃO EM FATO MACACO', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1278, NULL, 'IMPRESSÃO EM BANDEIRA DA REPUBLICA DE 1.40CMX1M', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1279, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.50CMX1.50CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1280, NULL, 'IMPRESSÃO EM BANDEIRA DE 1.20CMX85CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1281, NULL, 'IMPRESSÃO EM T-SHIRT DESPORTIVA ', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1282, NULL, 'Impressão Em Bandeira 2.50cmx1', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1283, NULL, 'IMPRESSÃO EM VINIL DE 2.12 CM X 98 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1284, NULL, 'IMPRESSÃO EM VINIL DE 2.03 CM X 44 CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1285, NULL, 'IMPRESSÃO EM POLO DE COR PRETA', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1286, NULL, 'IMPRESSÃO EM FLAMULAS DE 1.60CMX70CM', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1287, NULL, 'ROLO DE TECIDO PARA FLAMULAS (VERMELHO , BRANCO , AMARELO)', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1288, NULL, 'T-SHIRTS PERSONALIZADAS.', 1, 1, 1, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1289, NULL, 'Bandeira da Republica 1.50 x 1M', 1, 1, 1, 2, 20000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-08-13 12:02:49', '2024-08-13 12:02:49'),
+(1290, NULL, 'Bandeira  Institucional 1.50 x 1M', 1, 1, 1, 2, 20000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-08-13 12:03:26', '2024-08-13 12:10:25'),
+(1291, NULL, 'T-Shirt Branca Com Impressão', 1, 1, 1, 2, 4500, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-08-13 12:17:31', '2024-08-13 12:19:01'),
+(1292, NULL, 'Taxa de Urgência', 1, 1, 1, 4, 50000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-09-05 07:13:41', '2024-09-05 07:13:41'),
+(1293, NULL, 'Plano de Comunicação - Anual', 1, 1, 1, 4, 18000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-02 12:22:10', '2024-10-02 12:22:10'),
+(1294, NULL, 'LICENÇA ANUAL DA PLATAFORMA DE MONITORAMENTO', 1, 1, 1, 4, 65000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-02 12:22:40', '2024-10-02 12:22:40'),
+(1295, NULL, 'GPS Tracker (1. Redes: GSM/GPRS   2.ChipGSM/GPRS:SIM900B   3.SensibilidadeGPS:159dBm   4.Peso:120g   5.Bateriarecarregável 3,7V180mAhlion)', 1, 1, 1, 4, 85000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', '1. Redes: GSM/GPRS \r\n\r\n2.ChipGSM/GPRS:SIM900B \r\n\r\n3.SensibilidadeGPS:159dBm \r\n\r\n4.Peso:120g \r\n\r\n5.Bateriarecarregável 3,7V180mAhlion', 1, '2024-10-02 12:27:29', '2024-10-02 12:32:04'),
+(1296, NULL, 'FORMAÇÃO - PLATAFORMA DE MONITORAMENTO(Formação Manuseamento do software de localização (plataforma de monitoramento))', 1, 1, 1, 4, 70000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-02 12:28:42', '2024-10-02 12:31:41'),
+(1297, NULL, 'FORMAÇÃO PROFISSIONAL - GPS TRACKER (Formação para instalação do Sistema de localização de veículos via GPS)', 1, 1, 1, 4, 90000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-02 12:29:17', '2024-10-02 12:31:25'),
+(1298, NULL, 'Painel de Administração ( Painel Admnistração para gestão do monitoramento veicular)', 1, 1, 1, 4, 1400000, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-02 12:30:22', '2024-10-02 12:30:56'),
+(1299, NULL, 'Autel MaxiSYS MS909', 1, 1, 1, 4, 15062700, 'null.png', 'null.png', 'null.png', NULL, NULL, NULL, 0, '0', '0', NULL, 1, '2024-10-07 10:51:10', '2024-10-07 10:51:10');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `bancos`
+--
+
+CREATE TABLE `bancos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `iban` varchar(191) NOT NULL,
+  `swift` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `bancos`
+--
+
+INSERT INTO `bancos` (`id`, `nome`, `numero`, `iban`, `swift`, `created_at`, `updated_at`) VALUES
+(1, 'BAI', '14909233610001', '004000004909233610111', 'BAISFT', '2024-08-13 12:13:37', '2024-08-13 12:13:37'),
+(2, 'BIC', '174736506', '005100007473650610198', 'BICSFT', '2024-08-13 12:15:41', '2024-08-13 12:15:41');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `bugs`
+--
+
+CREATE TABLE `bugs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `descricao` text NOT NULL,
+  `status` enum('Pendente','Em Andamento','Resolvido') NOT NULL DEFAULT 'Pendente',
+  `criador_id` bigint(20) UNSIGNED NOT NULL,
+  `executor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Diverso', 'Alice heard the.', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `zona` varchar(191) DEFAULT NULL,
+  `identificacao` varchar(191) DEFAULT NULL,
+  `observacao` varchar(191) DEFAULT NULL,
+  `imagem` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `id_endereco` bigint(20) UNSIGNED DEFAULT NULL,
+  `id_contacto` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `codigo`, `designacao`, `contribuinte`, `zona`, `identificacao`, `observacao`, `imagem`, `status`, `id_endereco`, `id_contacto`, `created_at`, `updated_at`) VALUES
+(1, '2023-0001', 'Consumidor Final', 'Consumidor Final', NULL, NULL, NULL, 'null.png', 1, 1, 1, NULL, NULL),
+(2, NULL, 'Diverso', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(3, NULL, 'Oguimar Soares', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(4, NULL, 'Direcção-Nacional De Viação E Trânsito ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(5, NULL, 'Teste', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(6, NULL, 'Bvvcb', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(7, NULL, 'Comissão Nacional Eleitoral', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(8, NULL, 'Luisa De Sousa', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(9, NULL, 'Mario Rafael', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(10, NULL, 'MAN-B DESIGNER', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(11, NULL, 'WORKWEAR', '5000423130', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(12, NULL, 'EVS E AS, LDA', '5417149411', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(13, NULL, 'Gráfica Dungo', '5414383538', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(14, NULL, 'YANGA FRANCISCO', '5417489913', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(15, NULL, 'MASEDA', '5000172499', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(16, NULL, 'Bernadino Gonçalves', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(17, NULL, 'DECIO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(18, NULL, 'SEVEN BURGUER', '5000149683', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(19, NULL, 'EXCLUSIVA', '5480018515', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(20, NULL, 'ABRÃO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(21, NULL, 'WEZA CONCEPT LDA', '5417129917', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(22, NULL, 'IVALANY COMERCIO GERAL', '5417399868 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(23, NULL, 'BECK', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(24, NULL, 'AYONDA MINGAS ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(25, NULL, 'SPAP BUSINESS ANGOLA', '5417249840', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(26, NULL, 'CRUZ MELLO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(27, NULL, 'ARMI GRAFICA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(28, NULL, 'FM DESIGNER', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(29, NULL, 'COLÉGIO ROSSANA DE CÁSSIA', '5484022894', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(30, NULL, 'NUNO MOREIRA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(31, NULL, 'GAPI /CS/ PR', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(32, NULL, 'P.Monde', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(33, NULL, 'UNITA ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(34, NULL, 'CRIA BWE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(35, NULL, 'NS GRAFICA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(36, NULL, 'ALVARECE ZANGUI', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(37, NULL, 'RESIDENCIAL DB', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(38, NULL, 'GRAFICA 4A', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(39, NULL, 'ARTES BEL', '5000534498', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(40, NULL, 'LINK ARTES GRAFICAS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(41, NULL, 'DIRCOM', '5484000947', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(42, NULL, 'MARSIMA LDA', '5417446300', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(43, NULL, 'XAVITO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(44, NULL, 'BLACK DOVE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(45, NULL, 'PUBLIBRINDE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(46, NULL, 'IDEIA COM BRILHO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(47, NULL, 'Governo Provincial Do Bengo', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(48, NULL, 'JOSILDO SILVA ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(49, NULL, 'VÂNIA BENTO', '923942307', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(50, NULL, 'DIOMBE GEST,SU,LDA', '5000508845', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(51, NULL, 'PROCENTER -SOLUÇÕES PARA ESCRITORIOS', '5411724921', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(52, NULL, 'TOMBOSY,LDA', '5111039058', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(53, NULL, 'SINSE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(54, NULL, 'NAIRK PRESTAÇÃO DE SERVIÇOS, LDA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(55, NULL, 'TCHISBEL', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(56, NULL, 'Administração Do Distrito De Cazenga', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(57, NULL, 'LOIDE KIKWASSA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(58, NULL, 'KINA COSTA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(59, NULL, 'JOSÉ FILIPE ANTÓNIO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(60, NULL, 'LOPEZ DESIGNER PRESTAÇÃO DE SERVIÇOS SU. LDA', '5000758221', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(61, NULL, 'UNIDADE SEGURANÇA PRESIDENCIAL ', '5000270172', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(62, NULL, 'EDIÇOES NOVEMBRO', '5401113579', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(63, NULL, 'TPA', '540003055', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(64, NULL, 'GRUPO SAMA', '50001519', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(65, NULL, 'GEROHOTEL', '5402155526', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(66, NULL, 'DJ MAX PUSH E EVENTOS ,LIMITADA', '5000453668', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(67, NULL, 'INSTITUTO MISSIONARIO FILHAS DE S.PAULO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(68, NULL, 'DASIP- COMERCIO E SERVIÇOS', '500074128', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(69, NULL, 'WORK WEAR', '5000423130', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(70, NULL, 'SOGESTER- S.A', '5401159730', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(71, NULL, 'TERATCH', '2110018593', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(72, NULL, 'DIRCOM, LDA', '5484000947', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(73, NULL, 'GAHELP', '5417260517', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(74, NULL, 'CAMARA DOS CRIMINOLOGOS DE ANGOLA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(75, NULL, 'MABOQUE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(76, NULL, 'CHIMUMA COMUNICAÇAO', '5417322725', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(77, NULL, 'SEVEN', '5000149683', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(78, NULL, 'CENTRO PASTORAL DA RESSURREIÇÃO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(79, NULL, 'GAPI/CS/PR', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(80, NULL, '2-GIROS ANGOLA,LDA', '5417301574', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(81, NULL, 'MOV ANGOLA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(82, NULL, 'RMV E FILHOS , LDA', '5121034989', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(83, NULL, 'Edmundo Abel - Prestação De Serviços', '5000037273', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(84, NULL, 'KTJA -PUBLICIDADE', ' 5417354635', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(85, NULL, 'CASA CONTAS', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(86, NULL, 'MINI.da Defesa Nacional E Veteranos DA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(87, NULL, 'Direcção De Educação Patriótica PNA ', '5000309260', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(88, NULL, 'JESUS E COSTA', '5417345288', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(89, NULL, 'NGATEMANI,LDA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(90, NULL, 'VILGRA COMERCIAL', '5417205001', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(91, NULL, 'FO JASSIDA', '5000298549', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(92, NULL, 'ANGO PERU', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(93, NULL, 'ERICK MARCELO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(94, NULL, 'CIDADEMA', '5000275867', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(95, NULL, 'BENGUE', ' 999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(96, NULL, 'PROCURADORIA GERAL DA REPUBLICA', '5000312940', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(97, NULL, 'ESBART', '0028328242', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(98, NULL, 'Projeto De A. Sector Das Pescas', '5000281913', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(99, NULL, 'UPADATE-PRESTAÇÃO DE SERVIÇOS,LDA', '5000704709', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(100, NULL, 'Beny Kingalo', '5419004577', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(101, NULL, 'Domingos', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(102, NULL, 'Disloj, Lda', '5417249807 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(103, NULL, 'Kyansu, Lda', '5419011956', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(104, NULL, 'Zee Zona Economica Especial', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(105, NULL, 'Salomão Felix ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(106, NULL, 'AFOF- PRESTAÇAO DE SERVIÇO', '5417535168', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(107, NULL, 'Universidade Metodista De Angola', '5401150865', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(108, NULL, 'SERGIO DA SILVA', '000076928LA018', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(109, NULL, 'JACOB CRUZ', '000102202LA032', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(110, NULL, 'Pinto', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(111, NULL, 'Policia Nacional De Angola', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(112, NULL, 'Administraçao Municipal Do Cazenga', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(113, NULL, 'LUÍS DE ALMEIDA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(114, NULL, 'JOSE TAVARES', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(115, NULL, 'Mukanda ,Lda', '5000466646', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(116, NULL, 'PONTO E VIRGULA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(117, NULL, 'Xeron Prestação De Serviço', '5000146560', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(118, NULL, 'Zinaida ', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(119, NULL, 'TUNISIA SEBASTIAO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(120, NULL, 'FRANCINIO BATALHA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(121, NULL, 'VANDA KUPALA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(122, NULL, 'Gracieth Vaz', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(123, NULL, 'J Capuca E Filhos Comércio Geral, Lda', '5417676454', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(124, NULL, 'WEZA DIAS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(125, NULL, 'ALBERTO SILVA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(126, NULL, 'Elecnor Angola', '5402106223', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(127, NULL, 'Comando Provincial De Luanda', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(128, NULL, 'Departamento De Transporte / CPL', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(129, NULL, 'GOVERNO PROVINCIAL DO ZAIRE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(130, NULL, 'Sr. Silva', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(131, NULL, 'Makilu ,Lda', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(132, NULL, 'GINGA EVENTOS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(133, NULL, 'Isaneth Sebastião', '939304814', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(134, NULL, 'SEBA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(135, NULL, 'COMANDO MUNICIPAL DA POLICIA DE LUANDA ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(136, NULL, 'Alexandre De Brito', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(137, NULL, 'ESCOLA NACIONAL DE FORMAÇÃO DE TÉCNICOS DO S', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(138, NULL, 'Roma Wami', ' 5417328790', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(139, NULL, 'ROADPLUS', '5417271632', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(140, NULL, 'VALDIR', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(141, NULL, 'PRESTSERVICE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(142, NULL, 'BAKAMA CRIATIVA', '5484085551', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(143, NULL, 'Lucélia Vunge', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(144, NULL, 'JOSIMAR', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(145, NULL, 'Faculdade De Direito, Universidade A.Neto ', '5000282138', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(146, NULL, 'CLE INTERTENIMENTOS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(147, NULL, 'Suely Castelo ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(148, NULL, 'AP-SERVIÇOS', '5402116040', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(149, NULL, 'GICI-E.M.G -FAA', '5000321036', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(150, NULL, 'Nadioreth Bento', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(151, NULL, 'ELISA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(152, NULL, 'Unidade De Aviação Da Polícia', '5000306290', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(153, NULL, 'COMISSÃO NACIONAL ELEITORAL-C.N.E', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(154, NULL, 'GFORCE', '5417061794', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(155, NULL, 'SEIVA - AAE', '05000547778', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(156, NULL, 'CEFOJOR', '5000300004', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(157, NULL, 'SR. CARLOS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(158, NULL, 'FNP Design E Artes Gráficas', '0003565813LA030', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(159, NULL, 'FABIO', '99999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(160, NULL, 'Manuela', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(161, NULL, 'PANGUE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(162, NULL, 'COSAL COMERCIO E SERVIÇOS DE ANGOLA', '5410002083', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(163, NULL, 'IMPÉRIO MUAMBUMBA,LDA', ' 5417199400', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(164, NULL, 'Eliseu António', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(165, NULL, 'CN Gráfica', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(166, NULL, 'RENDER INTERACTIVE STUDIO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(167, NULL, 'INTR- Instituto Nacional Dos Transportes Rodoviários', '5000392626', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(168, NULL, 'VAZGURY', '5417443450', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(169, NULL, 'COMISSÃO ADMINISTRATIVA DA CIDADE DE LUANDA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(170, NULL, 'Rayany', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(171, NULL, 'Diversos Liliana Prestação De Serviços', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(172, NULL, 'ARCA GRAFICA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(173, NULL, 'Hermenegildo Pata', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(174, NULL, 'Tatiana Cardoso', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(175, NULL, 'SOSILCA, LDA', '5417234753', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(176, NULL, 'HALEPOR PRESTAÇÃO DE SERVIÇOS, LDA', '5000476447', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(177, NULL, 'ANTÓNIO SILVA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(178, NULL, 'Josildo Silva', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(179, NULL, 'FRANCISCO BANGUE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(180, NULL, 'SOCIEDADE DE ADVOGADOS, RL', '5000482463', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(181, NULL, 'DVP-Prestação De Serviços Consultoria E Designer', '2178001343', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(182, NULL, 'IRCCOP', '5000281395', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(183, NULL, 'Centro Recreativo Do Kilamba', '5417063967', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(184, NULL, 'Hospedaria SCDD QuintinoLda', '541116363', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(185, NULL, '2 Giros', '5417301574', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(186, NULL, 'MUKANDA OLIPIYEKALA', '5000466646', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(187, NULL, 'JOABRADOS-SOLUÇOES GRAFICAS', '5484006660', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(188, NULL, 'CASA-CE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(189, NULL, 'PDPANA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(190, NULL, 'CÉLSIO MAMBO', '000687091LA033', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(191, NULL, 'Luena Mascarenhas ', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(192, NULL, 'SINPROF', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(193, NULL, 'Fundação Brilhante ', '5000382000', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(194, NULL, 'Engracia Conceição', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(195, NULL, 'EZEQUIEL ARMANDO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(196, NULL, 'Joice', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(197, NULL, 'RMV E FILHOS', '5121034989', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(198, NULL, ' NKP A8COUT', '1001443LA030', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(199, NULL, 'CARGOWAY-SA', '50006739000', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(200, NULL, 'Miguel Maia', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(201, NULL, 'Governo Provincial Do Zaire', '5000312037', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(202, NULL, 'J.A.C.Januario Lda', '5000511709', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(203, NULL, 'LEONOR SOCOLO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(204, NULL, 'Minist. Da Acção Social, Fam E Promoc Da Mulher ', '53293', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(205, NULL, 'Sr Dario Castro', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(206, NULL, 'ADMINISTRAÇAO DO DISTRITO URBANO DO KILAMBA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(207, NULL, 'Royal Brothers Lda', '5417015873', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(208, NULL, 'Memorial A.G.Neto', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(209, NULL, 'MIGUEL', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(210, NULL, 'EDIZILA SACRAMENTO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(211, NULL, 'Claudino Manuel', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(212, NULL, 'Leonor Massocolo', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(213, NULL, 'BIG PRINT', '5417416720', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(214, NULL, 'FAIRS AND EVENTS ARENA', '5417430838', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(215, NULL, 'MARCIA FRAGOSO', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(216, NULL, 'GOVERNO PROVINCIAL DE LUANDA ', '5000378240', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(217, NULL, 'SOCINIR', '5000239127', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(218, NULL, 'AMA COMERCIO E SERVIÇO (SU) LDA', '5000780758', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(219, NULL, 'DEYSE JOSE', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(220, NULL, 'LEO DA FONSECA', '5125005126', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(221, NULL, 'ORDEM DOS ADVOGADOS', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(222, NULL, 'FRANKLIN MIGUEL', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(223, NULL, 'SOLUÇOES GRAFICA ', '5484006660', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(224, NULL, 'SR PEDRO JOSE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(225, NULL, 'HUMBERTO-SEGURANÇA E SERVIÇO LDA', '5417357260', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(226, NULL, 'Marinete Fernandes', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(227, NULL, 'GOLD MÍDIA -PRESTAÇÃO DE SERVIÇOS , LDA', '5417009164', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(228, NULL, 'MUGICORREIA, COMERCIO E SERVIÇO', '5000264601', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(229, NULL, 'Comando Provincial Da Policia Do Zaire', '5000309260 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(230, NULL, 'N & M', '5417120278', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(231, NULL, 'Marcia Moreira', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(232, NULL, 'Memorial Dr. Antonio Agostinho Neto', '5000279986', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(233, NULL, 'PINTO BONGA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(234, NULL, 'Rabby Gelson Ndombassy', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(235, NULL, 'MOREAL COMERCIO GERAL', '5000636843', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(236, NULL, 'MIZAN', '5417443107', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(237, NULL, 'PAULO LUYINDULA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(238, NULL, 'ARCA GRAFICA', '5402134928', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(239, NULL, 'ISAAC SESA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(240, NULL, 'PIR-Policia De Intervenção Rápida', '5000382132', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(241, NULL, 'Maravilha Jorge', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(242, NULL, 'ASCOFA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(243, NULL, 'Clinica Sagrada Esperança', '5401069197', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(244, NULL, 'GERMIL INVEST', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(245, NULL, 'Felizarda Joaquim', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(246, NULL, '2KZ COMERCIO GERAL E PRESTAÇÃO DE SERVIÇO ', '5000533491', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(247, NULL, 'LUFT BY LUCIANA FALCAO-COMERCIO [SU] LDA', '5000502081', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(248, NULL, 'Luarjo Soluçoes & Negocios', '5000430617', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(249, NULL, 'Associação Gloriosa Do D Agosto', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(250, NULL, 'SNIT', '001083803', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(251, NULL, 'JORGE', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(252, NULL, 'REINALDO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(253, NULL, 'DINUGO PRESTAÇAO DE SERVIÇO', '5000615315', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(254, NULL, 'ANALTINA NIMI', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(255, NULL, 'ADILSON MORGADO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(256, NULL, 'CATARINA CAPITAO', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(257, NULL, 'ANIESA', '5000677981', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(258, NULL, 'Daniel Muhongo', '000671340LA032', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(259, NULL, 'CASA CIVIL DO PRESIDENTE DA REPUBLICA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(260, NULL, 'LENINE GONÇALVES', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(261, NULL, 'ROSA MOREIRA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(262, NULL, 'GRAFICA NAP', ' 5000011568', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(263, NULL, 'NILSON MOREIRA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(264, NULL, 'ANSELMO CAFALA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(265, NULL, 'Divaldo Vicente Silva Gomes', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(266, NULL, 'ZENIA INVESTIMENTOS', '5000868108', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(267, NULL, 'GRUPO ARENA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(268, NULL, 'HERMON E SISTER', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(269, NULL, 'RDAA/ FAA', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(270, NULL, 'ADILSON SEGUNDA', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(271, NULL, 'JAMES FISHER', '999999999 ', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(272, NULL, 'LOT CRUZ', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(273, NULL, 'EMANUELA POMBAL', '999999999', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(274, '2024-0274', 'Setic', NULL, NULL, NULL, NULL, 'null.png', 1, 2, 2, '2024-08-13 12:04:53', '2024-08-13 12:04:53'),
+(275, '2024-0275', 'OLIN', NULL, NULL, NULL, NULL, 'null.png', 1, 3, 3, '2024-10-02 12:33:36', '2024-10-02 12:33:36');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `condicoes_pagamentos`
+--
+
+CREATE TABLE `condicoes_pagamentos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `condicoes_pagamentos`
+--
+
+INSERT INTO `condicoes_pagamentos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Pronto Pagemento', NULL, NULL, NULL, NULL),
+(2, NULL, '30 Dias', NULL, NULL, NULL, NULL),
+(3, NULL, '60 Dias', NULL, NULL, NULL, NULL),
+(4, NULL, '90 Dias', NULL, NULL, NULL, NULL),
+(5, NULL, '120 Dias', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `contactos`
+--
+
+CREATE TABLE `contactos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `telemovel` varchar(191) DEFAULT NULL,
+  `contacto` varchar(191) DEFAULT NULL,
+  `telefone` varchar(191) DEFAULT NULL,
+  `fax` varchar(191) DEFAULT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `facebook` varchar(191) DEFAULT NULL,
+  `whatsapp` varchar(191) DEFAULT NULL,
+  `skype` varchar(191) DEFAULT NULL,
+  `twitter` varchar(191) DEFAULT NULL,
+  `linkedin` varchar(191) DEFAULT NULL,
+  `website` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Extraindo dados da tabela `contactos`
+--
+
+INSERT INTO `contactos` (`id`, `telemovel`, `contacto`, `telefone`, `fax`, `email`, `facebook`, `whatsapp`, `skype`, `twitter`, `linkedin`, `website`, `created_at`, `updated_at`) VALUES
+(1, '941569739', NULL, '222770986', NULL, 'scinitwm2021@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `departamentos`
+--
+
+CREATE TABLE `departamentos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `departamentos`
+--
+
+INSERT INTO `departamentos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Administração', 'Administração', 1, NULL, NULL),
+(2, '0001', 'Gestão', 'Gestão', 1, NULL, NULL),
+(3, '0001', 'Vendas', 'Vendas', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empresas`
+--
+
+CREATE TABLE `empresas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) NOT NULL,
+  `nif` varchar(191) NOT NULL,
+  `registo_comercial` varchar(191) DEFAULT NULL,
+  `data_fundacao` date NOT NULL,
+  `csocial` varchar(191) DEFAULT NULL,
+  `representante` varchar(191) DEFAULT NULL,
+  `ndi_rep` varchar(191) NOT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `foto` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `id_endereco` bigint(20) UNSIGNED NOT NULL,
+  `id_contacto` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `empresas`
+--
+
+INSERT INTO `empresas` (`id`, `designacao`, `nif`, `registo_comercial`, `data_fundacao`, `csocial`, `representante`, `ndi_rep`, `descricao`, `foto`, `status`, `id_endereco`, `id_contacto`, `created_at`, `updated_at`) VALUES
+(1, 'SCINIT WM - PRESTAÇÃO DE SERVIÇOS LDA', '5000658693', '5000658693', '2019-08-11', '100000', 'Nuno Moreira', '999999', NULL, '1723556133.png', 1, 1, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `enderecos`
+--
+
+CREATE TABLE `enderecos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `pais` varchar(191) DEFAULT NULL,
+  `cidade` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `enderecos`
+--
+
+INSERT INTO `enderecos` (`id`, `pais`, `cidade`, `endereco`, `created_at`, `updated_at`) VALUES
+(1, 'Angola', 'Luanda', 'CAZENGA/TALA HADY, ViILA FLOR', NULL, NULL),
+(2, 'Angola', 'LUANDA', NULL, NULL, NULL),
+(3, 'Angola', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fabricantes`
+--
+
+CREATE TABLE `fabricantes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `fabricantes`
+--
+
+INSERT INTO `fabricantes` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Diverso', 'I\'ve tried.', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `facturas`
+--
+
+CREATE TABLE `facturas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `imposto` decimal(30,2) DEFAULT NULL,
+  `retencao` decimal(30,2) DEFAULT NULL,
+  `total` decimal(30,2) DEFAULT NULL,
+  `total_pendente` decimal(30,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `documento_id` int(11) DEFAULT NULL,
+  `documento_numero` varchar(191) DEFAULT NULL,
+  `is_recibo` tinyint(1) DEFAULT NULL,
+  `is_nota` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `facturas`
+--
+
+INSERT INTO `facturas` (`id`, `numero`, `cliente_id`, `cliente_nome`, `contribuinte`, `endereco`, `data`, `data_vencimento`, `formapagamento_id`, `moeda_id`, `utilizador_id`, `utilizador_nome`, `observacao`, `subtotal`, `desconto`, `imposto`, `retencao`, `total`, `total_pendente`, `hash`, `status`, `documento_id`, `documento_numero`, `is_recibo`, `is_nota`, `created_at`, `updated_at`) VALUES
+(1, 'FT 2024/1', 274, 'Setic', NULL, NULL, '2024-08-21 00:00:00', '2024-08-21 00:00:00', 2, 1, 1, 'Administrador', NULL, 1060000.00, 0.00, 148400.00, 0.00, 1208400.00, 1208400.00, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 2, 'PP 2024/2', 1, 1, '2024-08-21 11:24:40', '2024-08-21 11:24:40'),
+(2, 'FT 2024/2', 274, 'Setic', NULL, NULL, '2024-09-05 00:00:00', '2024-09-05 00:00:00', 2, 1, 1, 'Administrador', NULL, 1380000.00, 0.00, 186200.00, 0.00, 1566200.00, 1566200.00, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, NULL, NULL, 1, 1, '2024-09-05 07:28:27', '2024-09-05 07:28:27');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `factura_recibos`
+--
+
+CREATE TABLE `factura_recibos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `imposto` decimal(30,2) DEFAULT NULL,
+  `retencao` decimal(30,2) DEFAULT NULL,
+  `total` decimal(30,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `is_nota` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `formas_pagamentos`
+--
+
+CREATE TABLE `formas_pagamentos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `formas_pagamentos`
+--
+
+INSERT INTO `formas_pagamentos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Dinheiro', 'Oh dear!.', 1, NULL, NULL),
+(2, '0002', 'Transferência', 'Pigeon had.', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedors`
+--
+
+CREATE TABLE `fornecedors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `zona` varchar(191) DEFAULT NULL,
+  `identificacao` varchar(191) DEFAULT NULL,
+  `observacao` varchar(191) DEFAULT NULL,
+  `imagem` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `id_endereco` bigint(20) UNSIGNED DEFAULT NULL,
+  `id_contacto` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `fornecedors`
+--
+
+INSERT INTO `fornecedors` (`id`, `codigo`, `designacao`, `contribuinte`, `zona`, `identificacao`, `observacao`, `imagem`, `status`, `id_endereco`, `id_contacto`, `created_at`, `updated_at`) VALUES
+(1, '2023-0001', 'Diverso', 'Diverso', NULL, NULL, NULL, 'null.png', 1, 1, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `guia_remessas`
+--
+
+CREATE TABLE `guia_remessas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `imposto` decimal(30,2) DEFAULT NULL,
+  `retencao` decimal(30,2) DEFAULT NULL,
+  `total` decimal(30,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `guia_transportes`
+--
+
+CREATE TABLE `guia_transportes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `imposto` decimal(30,2) DEFAULT NULL,
+  `retencao` decimal(30,2) DEFAULT NULL,
+  `total` decimal(30,2) DEFAULT NULL,
+  `local_carga` varchar(191) DEFAULT NULL,
+  `local_descarga` varchar(191) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `impostos`
+--
+
+CREATE TABLE `impostos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tipo` varchar(191) DEFAULT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `taxa` double DEFAULT NULL,
+  `motivo` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `impostos`
+--
+
+INSERT INTO `impostos` (`id`, `tipo`, `codigo`, `designacao`, `taxa`, `motivo`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ISENTO', 'M00', 'M00 - Regime Simplificado', 0, 'Regime Simplificado', 1, NULL, NULL),
+(2, 'IVA', '', 'IVA', 14, '', 1, NULL, NULL),
+(3, 'ISENTO', 'M02', 'M02 - Transmissão de bens e serviço não sujeita', 0, 'Regime Simplificado', 1, NULL, NULL),
+(4, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 1, NULL, NULL),
+(5, 'ISENTO', 'M11', 'M11 - Isento nos termos da alínea b) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea b) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(6, 'ISENTO', 'M12', 'M12 - Isento nos termos da alínea c) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea c) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(7, 'ISENTO', 'M13', 'M13 - Isento nos termos da alínea d) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea d) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(8, 'ISENTO', 'M14', 'M14 - Isento nos termos da alínea e) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea e) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(9, 'ISENTO', 'M15', 'M15 - Isento nos termos da alínea f) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea f) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(10, 'ISENTO', 'M16', 'M16 - Isento nos termos da alínea g) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea g) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(11, 'ISENTO', 'M17', 'M17 - Isento nos termos da alínea h) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea h) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(12, 'ISENTO', 'M18', 'M18 - Isento nos termos da alínea i) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea i) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(13, 'ISENTO', 'M19', 'M19 - Isento nos termos da alínea j) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea j) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(14, 'ISENTO', 'M20', 'M20 - Isento nos termos da alínea k) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea k) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(15, 'ISENTO', 'M21', 'M21 - Isento nos termos da alínea l) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea l) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(16, 'ISENTO', 'M22', 'M22 - Isento nos termos da alínea m) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea m) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(17, 'ISENTO', 'M23', 'M23 - Isento nos termos da alínea n) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea n) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(18, 'ISENTO', 'M24', 'M24 - Isento nos termos da alínea o) do nº1 do artigo 12.º do CIVA', 0, 'Isento nos termos da alínea o) do nº1 do artigo 12.º do CIVA', 1, NULL, NULL),
+(19, 'ISENTO', 'M80', 'M80 - Isento nos termos da alínea a) do nº1 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea a) do nº1 do artigo 14.º do CIVA', 1, NULL, NULL),
+(20, 'ISENTO', 'M81', 'M81 - Isento nos termos da alínea b) do nº1 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea b) do nº1 do artigo 14.º do CIVA', 1, NULL, NULL),
+(21, 'ISENTO', 'M82', 'M82 - Isento nos termos da alínea c) do nº1 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea c) do nº1 do artigo 14.º do CIVA', 1, NULL, NULL),
+(22, 'ISENTO', 'M83', 'M83 - Isento nos termos da alínea d) do nº1 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea d) do nº1 do artigo 14.º do CIVA', 1, NULL, NULL),
+(23, 'ISENTO', 'M84', 'M84 - Isento nos termos da alínea e) do nº1 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea e) do nº1 do artigo 14.º do CIVA', 1, NULL, NULL),
+(24, 'ISENTO', 'M85', 'M85 - Isento nos termos da alínea a) do nº2 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea a) do nº2 do artigo 14.º do CIVA', 1, NULL, NULL),
+(25, 'ISENTO', 'M86', 'M86 - Isento nos termos da alínea b) do nº2 do artigo 14.º do CIVA', 0, 'Isento nos termos da alínea b) do nº2 do artigo 14.º do CIVA', 1, NULL, NULL),
+(26, 'ISENTO', 'M30', 'M30 - Isento nos termos da alínea a) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea a) do artigo 15.º do CIVA', 1, NULL, NULL),
+(27, 'ISENTO', 'M31', 'M31 - Isento nos termos da alínea b) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea b) do artigo 15.º do CIVA', 1, NULL, NULL),
+(28, 'ISENTO', 'M32', 'M32 - Isento nos termos da alínea c) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea c) do artigo 15.º do CIVA', 1, NULL, NULL),
+(29, 'ISENTO', 'M33', 'M33 - Isento nos termos da alínea d) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea d) do artigo 15.º do CIVA', 1, NULL, NULL),
+(30, 'ISENTO', 'M34', 'M34 - Isento nos termos da alínea e) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea e) do artigo 15.º do CIVA', 1, NULL, NULL),
+(31, 'ISENTO', 'M35', 'M35 - Isento nos termos da alínea f) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea f) do artigo 15.º do CIVA', 1, NULL, NULL),
+(32, 'ISENTO', 'M36', 'M36 - Isento nos termos da alínea g) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea g) do artigo 15.º do CIVA', 1, NULL, NULL),
+(33, 'ISENTO', 'M37', 'M37 - Isento nos termos da alínea h) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea h) do artigo 15.º do CIVA', 1, NULL, NULL),
+(34, 'ISENTO', 'M38', 'M38 - Isento nos termos da alínea i) do artigo 15.º do CIVA', 0, 'Isento nos termos da alínea i) do artigo 15.º do CIVA', 1, NULL, NULL),
+(35, 'ISENTO', 'M90', 'M90 - Isento nos termos da alinea a) do nº1 do artigo 16.º', 0, 'Isento nos termos da alinea a) do nº1 do artigo 16.º', 1, NULL, NULL),
+(36, 'ISENTO', 'M91', 'M91 - Isento nos termos da alinea b) do nº1 do artigo 16.º', 0, 'Isento nos termos da alinea b) do nº1 do artigo 16.º', 1, NULL, NULL),
+(37, 'ISENTO', 'M92', 'M92 - Isento nos termos da alinea c) do nº1 do artigo 16.º', 0, 'Isento nos termos da alinea c) do nº1 do artigo 16.º', 1, NULL, NULL),
+(38, 'ISENTO', 'M93', 'M93 - Isento nos termos da alinea d) do nº1 do artigo 16.º', 0, 'Isento nos termos da alinea d) do nº1 do artigo 16.º', 1, NULL, NULL),
+(39, 'ISENTO', 'M93', 'M94 - Isento nos termos da alinea e) do nº1 do artigo 16.º', 0, 'Isento nos termos da alinea e) do nº1 do artigo 16.º', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `items`
+--
+
+CREATE TABLE `items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` decimal(30,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` decimal(30,2) DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` decimal(30,2) DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `factura_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `items`
+--
+
+INSERT INTO `items` (`id`, `designacao`, `preco`, `qtd`, `desconto`, `subtotal`, `retencao_designacao`, `retencao_taxa`, `imposto_tipo`, `imposto_codigo`, `imposto_designacao`, `imposto_taxa`, `imposto_motivo`, `factura_id`, `artigo_id`, `imposto_id`, `retencao_id`, `created_at`, `updated_at`) VALUES
+(1, 'T-Shirt Branca Com Impressão', 4500.00, 200, 0.00, 900000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 1, 1291, 2, 1, '2024-08-21 11:24:40', '2024-08-21 11:24:40'),
+(2, 'Bandeira  Institucional 1.50 x 1M', 20000.00, 4, 0.00, 80000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 1, 1290, 2, 1, '2024-08-21 11:24:41', '2024-08-21 11:24:41'),
+(3, 'Bandeira da Republica 1.50 x 1M', 20000.00, 4, 0.00, 80000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 1, 1289, 2, 1, '2024-08-21 11:24:41', '2024-08-21 11:24:41'),
+(4, 'Taxa de Urgência', 50000.00, 1, 0.00, 50000.00, 'Sem rentenção na fonte', 0.00, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0.00, 'Regime Simplificado', 2, 1292, 4, 1, '2024-09-05 07:28:28', '2024-09-05 07:28:28'),
+(5, 'T-Shirt Branca Com Impressão', 4500.00, 260, 0.00, 1170000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 2, 1291, 2, 1, '2024-09-05 07:28:28', '2024-09-05 07:28:28'),
+(6, 'Bandeira da Republica 1.50 x 1M', 20000.00, 4, 0.00, 80000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 2, 1289, 2, 1, '2024-09-05 07:28:28', '2024-09-05 07:28:28'),
+(7, 'Bandeira  Institucional 1.50 x 1M', 20000.00, 4, 0.00, 80000.00, 'Sem rentenção na fonte', 0.00, 'IVA', NULL, 'IVA', 14.00, NULL, 2, 1290, 2, 1, '2024-09-05 07:28:28', '2024-09-05 07:28:28');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_factura_recibos`
+--
+
+CREATE TABLE `item_factura_recibos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` decimal(30,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` decimal(30,2) DEFAULT NULL,
+  `subtotal` decimal(30,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` decimal(30,2) DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` decimal(30,2) DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `factura_recibo_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_guia_remessas`
+--
+
+CREATE TABLE `item_guia_remessas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` double(8,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` double DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` double DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `guia_remessa_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_guia_transportes`
+--
+
+CREATE TABLE `item_guia_transportes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` double(8,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` double DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` double DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `guia_transporte_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_nota_creditos`
+--
+
+CREATE TABLE `item_nota_creditos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` double(8,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` double DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` double DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `nota_credito_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_nota_debitos`
+--
+
+CREATE TABLE `item_nota_debitos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` double(8,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` double DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` double DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `nota_debito_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_proformas`
+--
+
+CREATE TABLE `item_proformas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `preco` double(8,2) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `subtotal` decimal(10,0) DEFAULT NULL,
+  `retencao_designacao` varchar(191) DEFAULT NULL,
+  `retencao_taxa` decimal(10,0) DEFAULT NULL,
+  `imposto_tipo` varchar(191) DEFAULT NULL,
+  `imposto_codigo` varchar(191) DEFAULT NULL,
+  `imposto_designacao` varchar(191) DEFAULT NULL,
+  `imposto_taxa` decimal(10,0) DEFAULT NULL,
+  `imposto_motivo` varchar(191) DEFAULT NULL,
+  `proforma_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `imposto_id` bigint(20) UNSIGNED NOT NULL,
+  `retencao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `item_proformas`
+--
+
+INSERT INTO `item_proformas` (`id`, `designacao`, `preco`, `qtd`, `desconto`, `subtotal`, `retencao_designacao`, `retencao_taxa`, `imposto_tipo`, `imposto_codigo`, `imposto_designacao`, `imposto_taxa`, `imposto_motivo`, `proforma_id`, `artigo_id`, `imposto_id`, `retencao_id`, `created_at`, `updated_at`) VALUES
+(1, 'Bandeira da Republica 1.50 x 1M', 20000.00, 4, 0.00, 80000, 'Sem rentenção na fonte', 0, 'IVA', NULL, 'IVA', 14, NULL, 1, 1289, 2, 1, '2024-08-13 12:05:50', '2024-08-13 12:05:50'),
+(2, 'Bandeira da Institucional 1.50 x 1M', 20000.00, 4, 0.00, 80000, 'Sem rentenção na fonte', 0, 'IVA', NULL, 'IVA', 14, NULL, 1, 1290, 2, 1, '2024-08-13 12:05:50', '2024-08-13 12:05:50'),
+(3, 'T-Shirt Branca Com Impressão', 4500.00, 200, 0.00, 900000, 'Sem rentenção na fonte', 0, 'IVA', NULL, 'IVA', 14, NULL, 2, 1291, 2, 1, '2024-08-13 12:19:30', '2024-08-13 12:19:30'),
+(4, 'Bandeira  Institucional 1.50 x 1M', 20000.00, 4, 0.00, 80000, 'Sem rentenção na fonte', 0, 'IVA', NULL, 'IVA', 14, NULL, 2, 1290, 2, 1, '2024-08-13 12:19:30', '2024-08-13 12:19:30'),
+(5, 'Bandeira da Republica 1.50 x 1M', 20000.00, 4, 0.00, 80000, 'Sem rentenção na fonte', 0, 'IVA', NULL, 'IVA', 14, NULL, 2, 1289, 2, 1, '2024-08-13 12:19:30', '2024-08-13 12:19:30'),
+(6, 'FORMAÇÃO PROFISSIONAL - GPS TRACKER (Formação para instalação do Sistema de localização de veículos via GPS)', 90000.00, 1, 0.00, 90000, 'Sem rentenção na fonte', 0, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 32, 1297, 4, 1, '2024-10-02 12:56:45', '2024-10-02 12:56:45'),
+(7, 'FORMAÇÃO - PLATAFORMA DE MONITORAMENTO(Formação Manuseamento do software de localização (plataforma de monitoramento))', 70000.00, 1, 0.00, 70000, 'Sem rentenção na fonte', 0, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 32, 1296, 4, 1, '2024-10-02 12:56:45', '2024-10-02 12:56:45'),
+(8, 'GPS Tracker (1. Redes: GSM/GPRS   2.ChipGSM/GPRS:SIM900B   3.SensibilidadeGPS:159dBm   4.Peso:120g   5.Bateriarecarregável 3,7V180mAhlion)', 85000.00, 1, 0.00, 85000, 'Sem rentenção na fonte', 0, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 32, 1295, 4, 1, '2024-10-02 12:56:45', '2024-10-02 12:56:45'),
+(9, 'LICENÇA ANUAL DA PLATAFORMA DE MONITORAMENTO', 65000.00, 1, 0.00, 65000, 'Sem rentenção na fonte', 0, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 32, 1294, 4, 1, '2024-10-02 12:56:45', '2024-10-02 12:56:45'),
+(10, 'Plano de Comunicação - Anual', 18000.00, 1, 0.00, 18000, 'Sem rentenção na fonte', 0, 'ISENTO', 'M04', 'M04 - Regime de Exclusão', 0, 'Regime Simplificado', 32, 1293, 4, 1, '2024-10-02 12:56:46', '2024-10-02 12:56:46');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_stocks`
+--
+
+CREATE TABLE `item_stocks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `stock_id` bigint(20) UNSIGNED NOT NULL,
+  `artigo_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_11_000000_create_departamentos_table', 1),
+(2, '2014_10_12_000000_create_enderecos_table', 1),
+(3, '2014_10_12_000000_create_users_table', 1),
+(4, '2014_10_12_100000_create_password_resets_table', 1),
+(5, '2019_08_19_000000_create_failed_jobs_table', 1),
+(6, '2020_08_10_110404_create_contactos_table', 1),
+(7, '2021_01_06_173930_create_tipos_table', 1),
+(8, '2021_01_06_173931_create_categorias_table', 1),
+(9, '2021_01_06_173932_create_impostos_table', 1),
+(10, '2021_01_06_173933_create_fornecedors_table', 1),
+(11, '2021_01_06_173934_create_retencaos_table', 1),
+(12, '2021_01_06_173952_create_artigos_table', 1),
+(13, '2021_07_19_095646_create_clientes_table', 1),
+(14, '2021_07_19_201615_create_empresas_table', 1),
+(15, '2021_08_13_100920_create_formas_pagamentos_table', 1),
+(16, '2021_08_13_100921_create_moedas_table', 1),
+(17, '2021_08_13_100926_create_facturas_table', 1),
+(18, '2021_08_27_084347_create_modo_pagamentos_table', 1),
+(19, '2021_08_30_183409_create_items_table', 1),
+(20, '2021_09_01_075243_create_proformas_table', 1),
+(21, '2021_09_01_075439_create_item_proformas_table', 1),
+(22, '2021_09_01_075937_create_series_table', 1),
+(23, '2021_09_03_132534_create_armazems_table', 1),
+(24, '2021_09_15_130302_create_stocks_table', 1),
+(25, '2021_09_19_125720_create_item_stocks_table', 1),
+(26, '2021_09_20_082519_create_recibos_table', 1),
+(27, '2021_09_20_082623_create_factura_recibos_table', 1),
+(28, '2021_09_20_082635_create_item_factura_recibos_table', 1),
+(29, '2021_09_28_131912_create_motivo_anulacaos_table', 1),
+(30, '2021_09_28_131912_create_tipo_motivo_anulacaos_table', 1),
+(31, '2021_12_22_125550_create_bugs_table', 1),
+(32, '2022_01_23_103308_create_fabricantes_table', 1),
+(33, '2022_01_23_151610_create_condicoes_pagamentos_table', 1),
+(34, '2022_01_25_091808_bancos', 1),
+(35, '2022_02_09_131420_create_permission_tables', 1),
+(36, '2022_09_08_110345_create_nota_creditos_table', 1),
+(37, '2022_09_08_110451_create_nota_debitos_table', 1),
+(38, '2022_09_08_110636_create_item_nota_creditos_table', 1),
+(39, '2022_09_08_110646_create_item_nota_debitos_table', 1),
+(40, '2022_09_11_162939_create_guia_transportes_table', 1),
+(41, '2022_09_11_162954_create_item_guia_transportes_table', 1),
+(42, '2022_09_11_163007_create_guia_remessas_table', 1),
+(43, '2022_09_11_163023_create_item_guia_remessas_table', 1),
+(44, '2022_09_21_140425_create_agts_table', 1),
+(45, '2023_01_23_155122_create_tax_tables_table', 1),
+(46, '2023_01_23_155225_create_saft_audits_table', 1),
+(47, '2023_03_31_105051_create_pais_table', 1),
+(48, '2023_05_07_190801_create_safts_table', 1),
+(49, '2023_07_19_200600_create_receita_despesas_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `model_has_permissions`
+--
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(191) NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `model_has_roles`
+--
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(191) NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `model_has_roles`
+--
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(1, 'App\\User', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `modo_pagamentos`
+--
+
+CREATE TABLE `modo_pagamentos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `modo_pagamentos`
+--
+
+INSERT INTO `modo_pagamentos` (`id`, `designacao`, `created_at`, `updated_at`) VALUES
+(1, 'Cheque', NULL, NULL),
+(2, 'Numerário', NULL, NULL),
+(3, 'Transferência Bancária', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `moedas`
+--
+
+CREATE TABLE `moedas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `moedas`
+--
+
+INSERT INTO `moedas` (`id`, `designacao`, `created_at`, `updated_at`) VALUES
+(1, 'Kwanza', NULL, NULL),
+(2, 'Dollar', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `motivo_anulacaos`
+--
+
+CREATE TABLE `motivo_anulacaos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `motivo_anulacaos`
+--
+
+INSERT INTO `motivo_anulacaos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Anulação', '', 1, NULL, NULL),
+(2, '0002', 'Rectificação', '', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nota_creditos`
+--
+
+CREATE TABLE `nota_creditos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `imposto` double(8,2) DEFAULT NULL,
+  `retencao` double(8,2) DEFAULT NULL,
+  `total` double(8,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `documento_id` int(11) DEFAULT NULL,
+  `documento_numero` varchar(191) DEFAULT NULL,
+  `motivo_anulacao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `motivo_anulacao_designacao` varchar(191) DEFAULT NULL,
+  `tipo_motivo_anulacao_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `tipo_motivo_anulacao_designacao` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nota_debitos`
+--
+
+CREATE TABLE `nota_debitos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `imposto` double(8,2) DEFAULT NULL,
+  `retencao` double(8,2) DEFAULT NULL,
+  `total` double(8,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pais`
+--
+
+CREATE TABLE `pais` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `sigla` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pais`
+--
+
+INSERT INTO `pais` (`id`, `designacao`, `sigla`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Angola', 'AO', 1, NULL, NULL),
+(2, 'Portugal', 'PT', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) NOT NULL,
+  `token` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `guard_name` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'pos', 'web', NULL, NULL),
+(2, 'painel', 'web', NULL, NULL),
+(3, 'artigo', 'web', NULL, NULL),
+(4, 'receita_despesa', 'web', NULL, NULL),
+(5, 'cliente', 'web', NULL, NULL),
+(6, 'documento', 'web', NULL, NULL),
+(7, 'relatorio', 'web', NULL, NULL),
+(8, 'configuracoes', 'web', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `proformas`
+--
+
+CREATE TABLE `proformas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` decimal(10,0) DEFAULT NULL,
+  `desconto` decimal(10,0) DEFAULT NULL,
+  `imposto` decimal(10,0) DEFAULT NULL,
+  `retencao` decimal(10,0) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `is_factura` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `proformas`
+--
+
+INSERT INTO `proformas` (`id`, `numero`, `cliente_id`, `cliente_nome`, `contribuinte`, `endereco`, `data`, `data_vencimento`, `formapagamento_id`, `moeda_id`, `utilizador_id`, `utilizador_nome`, `observacao`, `subtotal`, `desconto`, `imposto`, `retencao`, `total`, `hash`, `status`, `is_factura`, `created_at`, `updated_at`) VALUES
+(1, 'PP 2024/1', 274, 'Setic', NULL, NULL, '2024-08-13 00:00:00', '2024-08-13 00:00:00', 2, 1, 1, 'Administrador', NULL, 160000, 0, 22400, 0, 182400, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-08-13 12:05:50', '2024-08-13 12:05:50'),
+(2, 'PP 2024/2', 274, 'Setic', NULL, NULL, '2024-08-13 00:00:00', '2024-08-13 00:00:00', 2, 1, 1, 'Administrador', NULL, 1060000, 0, 148400, 0, 1208400, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 0, '2024-08-13 12:19:30', '2024-08-21 11:24:41'),
+(3, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:35:42', '2024-10-02 12:35:42'),
+(4, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:35:49', '2024-10-02 12:35:49'),
+(5, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:35:50', '2024-10-02 12:35:50'),
+(6, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:35:50', '2024-10-02 12:35:50'),
+(7, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:37:10', '2024-10-02 12:37:10'),
+(8, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:37:10', '2024-10-02 12:37:10'),
+(9, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:37:10', '2024-10-02 12:37:10'),
+(10, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:41:31', '2024-10-02 12:41:31'),
+(11, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:41:31', '2024-10-02 12:41:31'),
+(12, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:41:33', '2024-10-02 12:41:33'),
+(13, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 169720000, 0, 0, 0, 169720000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:51:15', '2024-10-02 12:51:15'),
+(14, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:12', '2024-10-02 12:54:12'),
+(15, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:13', '2024-10-02 12:54:13'),
+(16, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:13', '2024-10-02 12:54:13'),
+(17, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:14', '2024-10-02 12:54:14'),
+(18, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:14', '2024-10-02 12:54:14'),
+(19, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:15', '2024-10-02 12:54:15'),
+(20, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:15', '2024-10-02 12:54:15'),
+(21, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:15', '2024-10-02 12:54:15'),
+(22, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:15', '2024-10-02 12:54:15'),
+(23, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:15', '2024-10-02 12:54:15'),
+(24, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 3400000, 0, 0, 0, 3400000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:54:19', '2024-10-02 12:54:19'),
+(25, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:06', '2024-10-02 12:56:06'),
+(26, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:09', '2024-10-02 12:56:09'),
+(27, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:09', '2024-10-02 12:56:09'),
+(28, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:10', '2024-10-02 12:56:10'),
+(29, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:10', '2024-10-02 12:56:10'),
+(30, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:10', '2024-10-02 12:56:10'),
+(31, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 1728000, 0, 0, 0, 1728000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:10', '2024-10-02 12:56:10'),
+(32, 'PP 2024/3', 275, 'OLIN', NULL, NULL, '2024-10-02 00:00:00', '2024-10-02 00:00:00', 2, 1, 1, 'Administrador', NULL, 328000, 0, 0, 0, 328000, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-02 12:56:45', '2024-10-02 12:56:45'),
+(33, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:52', '2024-10-07 10:51:52'),
+(34, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:55', '2024-10-07 10:51:55'),
+(35, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:56', '2024-10-07 10:51:56'),
+(36, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:56', '2024-10-07 10:51:56'),
+(37, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:56', '2024-10-07 10:51:56'),
+(38, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:51:56', '2024-10-07 10:51:56'),
+(39, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:00', '2024-10-07 10:52:00'),
+(40, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:01', '2024-10-07 10:52:01'),
+(41, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:01', '2024-10-07 10:52:01'),
+(42, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:16', '2024-10-07 10:52:16'),
+(43, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:20', '2024-10-07 10:52:20'),
+(44, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:23', '2024-10-07 10:52:23'),
+(45, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(46, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(47, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(48, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(49, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(50, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:24', '2024-10-07 10:52:24'),
+(51, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:25', '2024-10-07 10:52:25'),
+(52, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:25', '2024-10-07 10:52:25'),
+(53, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:25', '2024-10-07 10:52:25'),
+(54, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:25', '2024-10-07 10:52:25'),
+(55, 'PP 2024/33', 275, 'OLIN', NULL, NULL, '2024-10-07 00:00:00', '2024-10-07 00:00:00', 2, 1, 1, 'Administrador', NULL, 15062700, 0, 0, 0, 15062700, 'MIICXAIBAAKBgQC4dcYScJrnD1xCbBAlSwQN80TYmlMhC1q3fqyL0y2ygQOmtKKYJkDDp/bx0F7ZJ4psVDAmJ1PC2SlHfVPtSZrsVTIf/OlWMsrkLQ+bSf2vJuzUgDagZ/htowIn3io6myiY+Ehq9vDjCd65XV/Hq2sDZoksXMpQU8kQoIF4P2oJqwIDAQABAoGBAJdMauHXIQdjDv6gWoHsTPAQWKj9tC/He2pE6cxqs/HVZqRHR5Ja1gZl7', 1, 1, '2024-10-07 10:52:25', '2024-10-07 10:52:25');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `receita_despesas`
+--
+
+CREATE TABLE `receita_despesas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `tipo` int(11) DEFAULT NULL,
+  `total` double(8,2) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `recibos`
+--
+
+CREATE TABLE `recibos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `cliente_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cliente_nome` varchar(191) DEFAULT NULL,
+  `contribuinte` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `data_vencimento` datetime DEFAULT NULL,
+  `formapagamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `moeda_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `utilizador_nome` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `subtotal` double(8,2) DEFAULT NULL,
+  `desconto` double(8,2) DEFAULT NULL,
+  `imposto` double(8,2) DEFAULT NULL,
+  `retencao` double(8,2) DEFAULT NULL,
+  `total` double(8,2) DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `numero_documento` varchar(191) DEFAULT NULL,
+  `data_documento` datetime DEFAULT NULL,
+  `total_pendente` double(8,2) DEFAULT NULL,
+  `valor_pago` double(8,2) DEFAULT NULL,
+  `ficheiro` varchar(191) DEFAULT NULL,
+  `data_ficheiro` datetime DEFAULT NULL,
+  `retencao_taxa` double(8,2) DEFAULT NULL,
+  `factura_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `retencaos`
+--
+
+CREATE TABLE `retencaos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `taxa` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `retencaos`
+--
+
+INSERT INTO `retencaos` (`id`, `designacao`, `taxa`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Sem rentenção na fonte', '0', 1, NULL, NULL),
+(2, 'Rentenção na fonte 6.5%', '6.5', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `guard_name` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'Administrador', 'web', NULL, NULL),
+(2, 'Gestor', 'web', NULL, NULL),
+(3, 'Operador', 'web', NULL, NULL),
+(4, 'Operador POS', 'web', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `role_has_permissions`
+--
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `role_has_permissions`
+--
+
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 1),
+(3, 2),
+(3, 3),
+(4, 1),
+(4, 2),
+(4, 3),
+(5, 1),
+(5, 2),
+(5, 3),
+(6, 1),
+(6, 2),
+(6, 3),
+(7, 1),
+(7, 2),
+(8, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `safts`
+--
+
+CREATE TABLE `safts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `filename` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `saft_audits`
+--
+
+CREATE TABLE `saft_audits` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `audit_file_version` varchar(191) DEFAULT NULL,
+  `company_id` varchar(191) DEFAULT NULL,
+  `tax_registration_number` varchar(191) DEFAULT NULL,
+  `tax_accounting_basis` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `saft_audits`
+--
+
+INSERT INTO `saft_audits` (`id`, `audit_file_version`, `company_id`, `tax_registration_number`, `tax_accounting_basis`, `created_at`, `updated_at`) VALUES
+(1, '1.01_01', '000000000', '5000213438', 'F', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `series`
+--
+
+CREATE TABLE `series` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `tipo` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `series`
+--
+
+INSERT INTO `series` (`id`, `codigo`, `designacao`, `tipo`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'PP 2024', 'proforma', 'Alice alone.', 1, NULL, NULL),
+(2, '0002', 'FT 2024', 'factura', 'Footman went on.', 1, NULL, NULL),
+(3, '0003', 'FR 2024', 'factura-recibo', 'She had already.', 1, NULL, NULL),
+(4, '0004', 'RC 2024', 'recibo', 'CAN all that.', 1, NULL, NULL),
+(5, '0005', 'NC 2024', 'nota-credito', 'On various.', 1, NULL, NULL),
+(6, '0006', 'ND 2024', 'nota-debito', 'Rome--no, THAT\'S.', 1, NULL, NULL),
+(7, '0007', 'GT 2024', 'guia-transporte', 'His voice.', 1, NULL, NULL),
+(8, '0008', 'GR 2024', 'guia-remessa', 'Dormouse turned.', 1, NULL, NULL),
+(9, '0009', 'RD 2024', 'receita-despesa', 'You gave.', 1, NULL, NULL),
+(10, '00010', 'SC 2024', 'stock', 'SIT down,\'.', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `stocks`
+--
+
+CREATE TABLE `stocks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `data` date DEFAULT NULL,
+  `serie` varchar(191) DEFAULT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `ref_doc` varchar(191) DEFAULT NULL,
+  `armazem` varchar(191) DEFAULT NULL,
+  `fornecedor_nome` varchar(191) DEFAULT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `fornecedor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tax_tables`
+--
+
+CREATE TABLE `tax_tables` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tax_type` varchar(191) DEFAULT NULL,
+  `tax_code` varchar(191) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `tax_percentage` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tax_tables`
+--
+
+INSERT INTO `tax_tables` (`id`, `tax_type`, `tax_code`, `description`, `tax_percentage`, `created_at`, `updated_at`) VALUES
+(1, 'IVA', 'ISE', 'IVA - Isento', '0.00', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipos`
+--
+
+CREATE TABLE `tipos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tipos`
+--
+
+INSERT INTO `tipos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'P', 'Produto', 'Produtos', 1, NULL, NULL),
+(2, 'S', 'Serviços', 'Serviços', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_motivo_anulacaos`
+--
+
+CREATE TABLE `tipo_motivo_anulacaos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `designacao` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tipo_motivo_anulacaos`
+--
+
+INSERT INTO `tipo_motivo_anulacaos` (`id`, `codigo`, `designacao`, `descricao`, `status`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'Ausência de desconto na fatura', '', 1, NULL, NULL),
+(2, '0002', 'Devolução dos artigos', '', 1, NULL, NULL),
+(3, '0003', 'Erro na entidade', '', 1, NULL, NULL),
+(4, '0004', 'Erros nas quantidades / preços', '', 1, NULL, NULL),
+(5, '0005', 'Erro no (s) preço (s)', '', 1, NULL, NULL),
+(6, '0006', 'Produto / serviço rejeitado', '', 1, NULL, NULL),
+(7, '0007', 'Rutura de stock', '', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL,
+  `departamento_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `password` varchar(191) DEFAULT NULL,
+  `foto` varchar(191) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `reset_password` tinyint(1) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `nome`, `email`, `departamento_id`, `password`, `foto`, `status`, `reset_password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Administrador', 'admin@admin.com', 1, '$2y$10$rnVsIikYjhyVTSiy.E3ybe2IHoqff/veqGxD4TpwR9U4IdAKcUo6u', 'default.jpg', 1, NULL, NULL, NULL, NULL);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `agts`
+--
+ALTER TABLE `agts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `armazems`
+--
+ALTER TABLE `armazems`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `artigos`
+--
+ALTER TABLE `artigos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `artigos_tipo_id_foreign` (`tipo_id`),
+  ADD KEY `artigos_retencao_id_foreign` (`retencao_id`),
+  ADD KEY `artigos_categoria_id_foreign` (`categoria_id`),
+  ADD KEY `artigos_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `artigos_fornecedor_id_foreign` (`fornecedor_id`);
+
+--
+-- Índices para tabela `bancos`
+--
+ALTER TABLE `bancos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `bugs`
+--
+ALTER TABLE `bugs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bugs_criador_id_foreign` (`criador_id`),
+  ADD KEY `bugs_executor_id_foreign` (`executor_id`);
+
+--
+-- Índices para tabela `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `clientes_id_endereco_foreign` (`id_endereco`),
+  ADD KEY `clientes_id_contacto_foreign` (`id_contacto`);
+
+--
+-- Índices para tabela `condicoes_pagamentos`
+--
+ALTER TABLE `condicoes_pagamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `contactos`
+--
+ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `empresas`
+--
+ALTER TABLE `empresas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `empresas_id_endereco_foreign` (`id_endereco`),
+  ADD KEY `empresas_id_contacto_foreign` (`id_contacto`);
+
+--
+-- Índices para tabela `enderecos`
+--
+ALTER TABLE `enderecos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `fabricantes`
+--
+ALTER TABLE `fabricantes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `facturas`
+--
+ALTER TABLE `facturas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `facturas_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `facturas_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `facturas_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `facturas_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `factura_recibos`
+--
+ALTER TABLE `factura_recibos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `factura_recibos_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `factura_recibos_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `factura_recibos_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `factura_recibos_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `formas_pagamentos`
+--
+ALTER TABLE `formas_pagamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `fornecedors`
+--
+ALTER TABLE `fornecedors`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fornecedors_id_endereco_foreign` (`id_endereco`),
+  ADD KEY `fornecedors_id_contacto_foreign` (`id_contacto`);
+
+--
+-- Índices para tabela `guia_remessas`
+--
+ALTER TABLE `guia_remessas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `guia_remessas_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `guia_remessas_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `guia_remessas_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `guia_remessas_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `guia_transportes`
+--
+ALTER TABLE `guia_transportes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `guia_transportes_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `guia_transportes_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `guia_transportes_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `guia_transportes_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `impostos`
+--
+ALTER TABLE `impostos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `items_factura_id_foreign` (`factura_id`),
+  ADD KEY `items_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `items_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `items_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_factura_recibos`
+--
+ALTER TABLE `item_factura_recibos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_factura_recibos_factura_recibo_id_foreign` (`factura_recibo_id`),
+  ADD KEY `item_factura_recibos_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_factura_recibos_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_factura_recibos_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_guia_remessas`
+--
+ALTER TABLE `item_guia_remessas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_guia_remessas_guia_remessa_id_foreign` (`guia_remessa_id`),
+  ADD KEY `item_guia_remessas_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_guia_remessas_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_guia_remessas_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_guia_transportes`
+--
+ALTER TABLE `item_guia_transportes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_guia_transportes_guia_transporte_id_foreign` (`guia_transporte_id`),
+  ADD KEY `item_guia_transportes_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_guia_transportes_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_guia_transportes_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_nota_creditos`
+--
+ALTER TABLE `item_nota_creditos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_nota_creditos_nota_credito_id_foreign` (`nota_credito_id`),
+  ADD KEY `item_nota_creditos_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_nota_creditos_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_nota_creditos_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_nota_debitos`
+--
+ALTER TABLE `item_nota_debitos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_nota_debitos_nota_debito_id_foreign` (`nota_debito_id`),
+  ADD KEY `item_nota_debitos_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_nota_debitos_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_nota_debitos_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_proformas`
+--
+ALTER TABLE `item_proformas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_proformas_proforma_id_foreign` (`proforma_id`),
+  ADD KEY `item_proformas_artigo_id_foreign` (`artigo_id`),
+  ADD KEY `item_proformas_imposto_id_foreign` (`imposto_id`),
+  ADD KEY `item_proformas_retencao_id_foreign` (`retencao_id`);
+
+--
+-- Índices para tabela `item_stocks`
+--
+ALTER TABLE `item_stocks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_stocks_stock_id_foreign` (`stock_id`),
+  ADD KEY `item_stocks_artigo_id_foreign` (`artigo_id`);
+
+--
+-- Índices para tabela `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Índices para tabela `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Índices para tabela `modo_pagamentos`
+--
+ALTER TABLE `modo_pagamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `moedas`
+--
+ALTER TABLE `moedas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `motivo_anulacaos`
+--
+ALTER TABLE `motivo_anulacaos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `nota_creditos`
+--
+ALTER TABLE `nota_creditos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nota_creditos_motivo_anulacao_id_foreign` (`motivo_anulacao_id`),
+  ADD KEY `nota_creditos_tipo_motivo_anulacao_id_foreign` (`tipo_motivo_anulacao_id`),
+  ADD KEY `nota_creditos_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `nota_creditos_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `nota_creditos_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `nota_creditos_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `nota_debitos`
+--
+ALTER TABLE `nota_debitos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nota_debitos_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `nota_debitos_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `nota_debitos_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `nota_debitos_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `pais`
+--
+ALTER TABLE `pais`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Índices para tabela `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`);
+
+--
+-- Índices para tabela `proformas`
+--
+ALTER TABLE `proformas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `proformas_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `proformas_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `proformas_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `proformas_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `receita_despesas`
+--
+ALTER TABLE `receita_despesas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `recibos`
+--
+ALTER TABLE `recibos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `recibos_factura_id_foreign` (`factura_id`),
+  ADD KEY `recibos_cliente_id_foreign` (`cliente_id`),
+  ADD KEY `recibos_formapagamento_id_foreign` (`formapagamento_id`),
+  ADD KEY `recibos_moeda_id_foreign` (`moeda_id`),
+  ADD KEY `recibos_utilizador_id_foreign` (`utilizador_id`);
+
+--
+-- Índices para tabela `retencaos`
+--
+ALTER TABLE `retencaos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`);
+
+--
+-- Índices para tabela `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Índices para tabela `safts`
+--
+ALTER TABLE `safts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `saft_audits`
+--
+ALTER TABLE `saft_audits`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `series`
+--
+ALTER TABLE `series`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `stocks`
+--
+ALTER TABLE `stocks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `stocks_fornecedor_id_foreign` (`fornecedor_id`);
+
+--
+-- Índices para tabela `tax_tables`
+--
+ALTER TABLE `tax_tables`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tipos`
+--
+ALTER TABLE `tipos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tipo_motivo_anulacaos`
+--
+ALTER TABLE `tipo_motivo_anulacaos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_departamento_id_foreign` (`departamento_id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `agts`
+--
+ALTER TABLE `agts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `armazems`
+--
+ALTER TABLE `armazems`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `artigos`
+--
+ALTER TABLE `artigos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1300;
+
+--
+-- AUTO_INCREMENT de tabela `bancos`
+--
+ALTER TABLE `bancos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `bugs`
+--
+ALTER TABLE `bugs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=276;
+
+--
+-- AUTO_INCREMENT de tabela `condicoes_pagamentos`
+--
+ALTER TABLE `condicoes_pagamentos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `contactos`
+--
+ALTER TABLE `contactos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `empresas`
+--
+ALTER TABLE `empresas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `enderecos`
+--
+ALTER TABLE `enderecos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `fabricantes`
+--
+ALTER TABLE `fabricantes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `facturas`
+--
+ALTER TABLE `facturas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `factura_recibos`
+--
+ALTER TABLE `factura_recibos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `formas_pagamentos`
+--
+ALTER TABLE `formas_pagamentos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `fornecedors`
+--
+ALTER TABLE `fornecedors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `guia_remessas`
+--
+ALTER TABLE `guia_remessas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `guia_transportes`
+--
+ALTER TABLE `guia_transportes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `impostos`
+--
+ALTER TABLE `impostos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de tabela `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `item_factura_recibos`
+--
+ALTER TABLE `item_factura_recibos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `item_guia_remessas`
+--
+ALTER TABLE `item_guia_remessas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `item_guia_transportes`
+--
+ALTER TABLE `item_guia_transportes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `item_nota_creditos`
+--
+ALTER TABLE `item_nota_creditos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `item_nota_debitos`
+--
+ALTER TABLE `item_nota_debitos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `item_proformas`
+--
+ALTER TABLE `item_proformas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `item_stocks`
+--
+ALTER TABLE `item_stocks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT de tabela `modo_pagamentos`
+--
+ALTER TABLE `modo_pagamentos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `moedas`
+--
+ALTER TABLE `moedas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `motivo_anulacaos`
+--
+ALTER TABLE `motivo_anulacaos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `nota_creditos`
+--
+ALTER TABLE `nota_creditos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `nota_debitos`
+--
+ALTER TABLE `nota_debitos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pais`
+--
+ALTER TABLE `pais`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de tabela `proformas`
+--
+ALTER TABLE `proformas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT de tabela `receita_despesas`
+--
+ALTER TABLE `receita_despesas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `recibos`
+--
+ALTER TABLE `recibos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `retencaos`
+--
+ALTER TABLE `retencaos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `safts`
+--
+ALTER TABLE `safts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `saft_audits`
+--
+ALTER TABLE `saft_audits`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `series`
+--
+ALTER TABLE `series`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `stocks`
+--
+ALTER TABLE `stocks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tax_tables`
+--
+ALTER TABLE `tax_tables`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `tipos`
+--
+ALTER TABLE `tipos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `tipo_motivo_anulacaos`
+--
+ALTER TABLE `tipo_motivo_anulacaos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `artigos`
+--
+ALTER TABLE `artigos`
+  ADD CONSTRAINT `artigos_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `artigos_fornecedor_id_foreign` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedors` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `artigos_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `artigos_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `artigos_tipo_id_foreign` FOREIGN KEY (`tipo_id`) REFERENCES `tipos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `bugs`
+--
+ALTER TABLE `bugs`
+  ADD CONSTRAINT `bugs_criador_id_foreign` FOREIGN KEY (`criador_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `bugs_executor_id_foreign` FOREIGN KEY (`executor_id`) REFERENCES `users` (`id`);
+
+--
+-- Limitadores para a tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD CONSTRAINT `clientes_id_contacto_foreign` FOREIGN KEY (`id_contacto`) REFERENCES `contactos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `clientes_id_endereco_foreign` FOREIGN KEY (`id_endereco`) REFERENCES `enderecos` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `empresas`
+--
+ALTER TABLE `empresas`
+  ADD CONSTRAINT `empresas_id_contacto_foreign` FOREIGN KEY (`id_contacto`) REFERENCES `contactos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `empresas_id_endereco_foreign` FOREIGN KEY (`id_endereco`) REFERENCES `enderecos` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `facturas`
+--
+ALTER TABLE `facturas`
+  ADD CONSTRAINT `facturas_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `facturas_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `facturas_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `facturas_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `factura_recibos`
+--
+ALTER TABLE `factura_recibos`
+  ADD CONSTRAINT `factura_recibos_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `factura_recibos_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `factura_recibos_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `factura_recibos_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `fornecedors`
+--
+ALTER TABLE `fornecedors`
+  ADD CONSTRAINT `fornecedors_id_contacto_foreign` FOREIGN KEY (`id_contacto`) REFERENCES `contactos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fornecedors_id_endereco_foreign` FOREIGN KEY (`id_endereco`) REFERENCES `enderecos` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `guia_remessas`
+--
+ALTER TABLE `guia_remessas`
+  ADD CONSTRAINT `guia_remessas_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_remessas_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_remessas_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_remessas_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `guia_transportes`
+--
+ALTER TABLE `guia_transportes`
+  ADD CONSTRAINT `guia_transportes_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_transportes_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_transportes_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `guia_transportes_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `items_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `items_factura_id_foreign` FOREIGN KEY (`factura_id`) REFERENCES `facturas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `items_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `items_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_factura_recibos`
+--
+ALTER TABLE `item_factura_recibos`
+  ADD CONSTRAINT `item_factura_recibos_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_factura_recibos_factura_recibo_id_foreign` FOREIGN KEY (`factura_recibo_id`) REFERENCES `factura_recibos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_factura_recibos_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_factura_recibos_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_guia_remessas`
+--
+ALTER TABLE `item_guia_remessas`
+  ADD CONSTRAINT `item_guia_remessas_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_guia_remessas_guia_remessa_id_foreign` FOREIGN KEY (`guia_remessa_id`) REFERENCES `guia_remessas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_guia_remessas_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_guia_remessas_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_guia_transportes`
+--
+ALTER TABLE `item_guia_transportes`
+  ADD CONSTRAINT `item_guia_transportes_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_guia_transportes_guia_transporte_id_foreign` FOREIGN KEY (`guia_transporte_id`) REFERENCES `guia_transportes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_guia_transportes_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_guia_transportes_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_nota_creditos`
+--
+ALTER TABLE `item_nota_creditos`
+  ADD CONSTRAINT `item_nota_creditos_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_nota_creditos_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_nota_creditos_nota_credito_id_foreign` FOREIGN KEY (`nota_credito_id`) REFERENCES `nota_creditos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_nota_creditos_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_nota_debitos`
+--
+ALTER TABLE `item_nota_debitos`
+  ADD CONSTRAINT `item_nota_debitos_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_nota_debitos_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_nota_debitos_nota_debito_id_foreign` FOREIGN KEY (`nota_debito_id`) REFERENCES `nota_debitos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_nota_debitos_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_proformas`
+--
+ALTER TABLE `item_proformas`
+  ADD CONSTRAINT `item_proformas_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_proformas_imposto_id_foreign` FOREIGN KEY (`imposto_id`) REFERENCES `impostos` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `item_proformas_proforma_id_foreign` FOREIGN KEY (`proforma_id`) REFERENCES `proformas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_proformas_retencao_id_foreign` FOREIGN KEY (`retencao_id`) REFERENCES `retencaos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `item_stocks`
+--
+ALTER TABLE `item_stocks`
+  ADD CONSTRAINT `item_stocks_artigo_id_foreign` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `item_stocks_stock_id_foreign` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `nota_creditos`
+--
+ALTER TABLE `nota_creditos`
+  ADD CONSTRAINT `nota_creditos_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_creditos_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_creditos_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_creditos_motivo_anulacao_id_foreign` FOREIGN KEY (`motivo_anulacao_id`) REFERENCES `motivo_anulacaos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_creditos_tipo_motivo_anulacao_id_foreign` FOREIGN KEY (`tipo_motivo_anulacao_id`) REFERENCES `tipo_motivo_anulacaos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_creditos_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `nota_debitos`
+--
+ALTER TABLE `nota_debitos`
+  ADD CONSTRAINT `nota_debitos_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_debitos_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_debitos_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `nota_debitos_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `proformas`
+--
+ALTER TABLE `proformas`
+  ADD CONSTRAINT `proformas_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `proformas_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `proformas_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `proformas_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `recibos`
+--
+ALTER TABLE `recibos`
+  ADD CONSTRAINT `recibos_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `recibos_factura_id_foreign` FOREIGN KEY (`factura_id`) REFERENCES `facturas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `recibos_formapagamento_id_foreign` FOREIGN KEY (`formapagamento_id`) REFERENCES `formas_pagamentos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `recibos_moeda_id_foreign` FOREIGN KEY (`moeda_id`) REFERENCES `moedas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `recibos_utilizador_id_foreign` FOREIGN KEY (`utilizador_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `stocks`
+--
+ALTER TABLE `stocks`
+  ADD CONSTRAINT `stocks_fornecedor_id_foreign` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedors` (`id`) ON DELETE NO ACTION;
+
+--
+-- Limitadores para a tabela `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_departamento_id_foreign` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
